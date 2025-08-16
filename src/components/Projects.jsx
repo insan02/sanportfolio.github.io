@@ -17,11 +17,11 @@ const Projects = () => {
       shortTitle: "Correspondence Information System",
       category: "Academic Project",
       description: "Developed a comprehensive digital solution to optimize correspondence administration management for student organizations at Andalas University as part of the Framework-Based Programming course project. This system addresses critical challenges in manual administrative processes, including document loss, recording inaccuracies, and information delivery delays.",
-      image: "/sssurat.png",
+      image: "sssurat.png",
       screenshots: [
-        "/sssurat1.png",
-        "/sssurat2.png",
-        "/sssurat3.png"
+        "sssurat1.png",
+        "sssurat2.png",
+        "sssurat3.png"
       ],
       technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS"],
       features: [
@@ -37,11 +37,11 @@ const Projects = () => {
       shortTitle: "Eyeglass Frame Selection DSS",
       category: "Thesis Project",
       description: "Successfully developed an intelligent decision support system for eyeglass frame selection at Sidi Pingai Eyeglass Store, Bukittinggi, as part of my final project (thesis). This innovative system enhances customer experience and optimizes product recommendations.",
-      image: "/ssspk.jpg",
+      image: "ssspk.jpg",
       screenshots: [
-        "/ssspk1.jpg",
-        "/ssspk2.jpg",
-        "/ssspk3.jpg"
+        "ssspk1.jpg",
+        "ssspk2.jpg",
+        "ssspk3.jpg"
       ],
       technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
       features: ["Profile Matching Algorithm - Analyzes customer facial characteristics and preferences", 
@@ -55,11 +55,11 @@ const Projects = () => {
       shortTitle: "Car Rental System",
       category: "Web Application",
       description: "Comprehensive car rental application featuring dual interfaces for administrators and customers. This full-stack web application streamlines vehicle rental operations with advanced booking management and fleet administration capabilities.",
-      image: "/ssrent.png",
+      image: "ssrent.png",
       screenshots: [
-        "/ssrent1.png",
-        "/ssrent2.png",
-        "/ssrent3.png"
+        "ssrent1.png",
+        "ssrent2.png",
+        "ssrent3.png"
       ],
       technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
       features: ["Fleet Management - Add, edit, and remove vehicles with detailed specifications",

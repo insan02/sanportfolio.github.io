@@ -28,12 +28,12 @@ const Experience = () => {
       ],
       technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
       screenshots: [
-        "/sslldikti1.png",
-        "/sslldikti2.png",
-        "/sslldikti3.png",
-        "/sslldikti4.png"
+        "sslldikti1.png",
+        "sslldikti2.png",
+        "sslldikti3.png",
+        "sslldikti4.png"
       ],
-      companyLogo: "/lldikti.png",
+      companyLogo: "lldikti.png",
       color: "from-blue-500 to-indigo-600"
     }
   ]

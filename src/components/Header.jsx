@@ -175,7 +175,7 @@ const Hero = () => {
                 
                 {/* Photo */}
                 <img 
-                  src="/me1.png"
+                  src="me1.png"
                   alt="Nurul Insan Profile" 
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-110 contrast-110"
                 />
