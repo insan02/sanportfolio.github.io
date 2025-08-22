@@ -226,8 +226,8 @@ const Hero = () => {
             </a>
             
             <a 
-              href="/CV English_Insan 2.pdf" 
-              download="CV English_Insan 2.pdf"
+              href="/CV English Nurul Insan.pdf" 
+              download="CV English Nurul Insan.pdf"
               className="group border-2 border-yellow-400/60 text-yellow-400 px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 flex items-center justify-center gap-2 relative overflow-hidden"
             >
               <svg className="w-5 h-5 relative z-10 group-hover:text-blue-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
