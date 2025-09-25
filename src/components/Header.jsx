@@ -161,8 +161,8 @@ const Hero = () => {
         </nav>
       </header>
 
-      {/* Hero Content - dengan padding top untuk header */}
-      <div className="container mx-auto px-6 text-center flex items-center justify-center min-h-screen pt-20 relative z-10">
+      {/* Hero Content - dengan padding top untuk header dan bottom untuk dropdown */}
+      <div className="container mx-auto px-6 text-center flex items-center justify-center min-h-screen pt-20 pb-32 relative z-10">
         <div className="max-w-4xl mx-auto">
           
           {/* Enhanced Profile Photo Section */}
@@ -187,12 +187,10 @@ const Hero = () => {
               {/* Photo container */}
               <div className="relative w-full h-full rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-4 border-white/40 overflow-hidden transform group-hover:scale-110 transition-all duration-500 shadow-2xl group-hover:shadow-yellow-300/25">
                 
-                {/* Photo */}
-                <img 
-                  src="me1.png"
-                  alt="Nurul Insan Profile" 
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-110 contrast-110"
-                />
+                {/* Photo placeholder */}
+                <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
+                  <span className="text-gray-600 text-sm">Photo</span>
+                </div>
                 
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-yellow-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -227,7 +225,7 @@ const Hero = () => {
           </div>
           
           {/* Enhanced Button Section with CV Dropdown */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 relative">
             <a 
               href="#project" 
               className="group border-2 border-white/60 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 relative overflow-hidden"
@@ -252,21 +250,21 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu - Positioned to prevent overflow */}
               {isCVDropdownOpen && (
-                <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-2xl py-2 w-48 z-50">
+                <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-2xl py-2 w-56 z-50">
                   <a 
                     href="/CV ind_Nurul Insan.pdf" 
                     download="CV ind_Nurul Insan.pdf"
                     className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 hover:text-blue-600"
                     onClick={() => setIsCVDropdownOpen(false)}
                   >
-                    <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-xs font-bold">ID</span>
                     </div>
-                    <div>
-                      <div className="font-semibold">Bahasa Indonesia</div>
-                      <div className="text-xs text-gray-500">CV_ind_Nurul Insan.pdf</div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Bahasa Indonesia</div>
+                      <div className="text-xs text-gray-500 truncate">CV_ind_Nurul Insan.pdf</div>
                     </div>
                   </a>
                   
@@ -278,12 +276,12 @@ const Hero = () => {
                     className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 hover:text-blue-600"
                     onClick={() => setIsCVDropdownOpen(false)}
                   >
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-xs font-bold">EN</span>
                     </div>
-                    <div>
-                      <div className="font-semibold">English Version</div>
-                      <div className="text-xs text-gray-500">CV_eng_Nurul Insan.pdf</div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">English Version</div>
+                      <div className="text-xs text-gray-500 truncate">CV_eng_Nurul Insan.pdf</div>
                     </div>
                   </a>
                 </div>
