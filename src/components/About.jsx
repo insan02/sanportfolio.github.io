@@ -4,19 +4,41 @@ import { FaPhp, FaLaravel, FaDatabase, FaJsSquare, FaMicrosoft } from "react-ico
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredSkill, setHoveredSkill] = useState(null)
+  const [language, setLanguage] = useState('en') // 'en' for English, 'id' for Indonesian
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
+  const translations = {
+    en: {
+      title: "About Me",
+      skillsTitle: "My Skills",
+      connectText: "Let's connect to discuss collaboration opportunities in web development!",
+      contactButton: "Contact Me",
+      paragraph1: "I am a Fresh Graduate from Andalas University majoring in Information Systems with a passion for web development and information technology. Experienced as a Web Developer intern using PHP Laravel and Bootstrap during an internship at LLDikti Wilayah X Padang, taking full responsibility for developing the SPPD application from frontend to backend, including testing.",
+      paragraph2: "With a combination of technical skills in full-stack development (PHP Laravel, MySQL, Bootstrap) and soft skills honed through various organizational experiences, I have strong adaptability and am always ready to learn new technologies. Ready to contribute to the IT industry, particularly as a PHP Laravel Developer."
+    },
+    id: {
+      title: "Tentang Saya",
+      skillsTitle: "Keahlian Saya",
+      connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi di bidang web development!",
+      contactButton: "Hubungi Saya",
+      paragraph1: "Lulusan baru Sistem Informasi Universitas Andalas (IPK 3.78) dengan passion dalam pengembangan web dan teknologi informasi. Memiliki pengalaman magang sebagai Web Developer menggunakan PHP Laravel dan Bootstrap selama magang di LLDikti Wilayah X Padang, bertanggung jawab penuh dalam pengembangan aplikasi SPPD mulai dari frontend hingga backend serta pengujiannya.",
+      paragraph2: "Dengan kombinasi technical skills dalam full-stack development (PHP Laravel, MySQL, Bootstrap) dan soft skills yang terasah dari berbagai pengalaman organisasi, saya memiliki kemampuan adaptasi yang cepat dan selalu siap mempelajari teknologi baru. Siap berkontribusi dalam dunia IT khususnya sebagai PHP Laravel Developer."
+    }
+  }
+
+  const currentTranslations = translations[language]
+
   const skills = [
-  { name: 'PHP', icon: <FaPhp className="text-[#777BB4]" />, color: 'from-indigo-500 to-blue-500' },
-  { name: 'Laravel', icon: <FaLaravel className="text-[#FF2D20]" />, color: 'from-red-500 to-rose-500' },
-  { name: 'MySQL Database', icon: <FaDatabase className="text-[#4479A1]" />, color: 'from-teal-500 to-cyan-500' },
-  { name: 'JavaScript', icon: <FaJsSquare className="text-[#F7DF1E]" />, color: 'from-yellow-400 to-amber-500' },
-  { name: 'Microsoft Office', icon: <FaMicrosoft className="text-[#F25022]" />, color: 'from-emerald-500 to-green-600' },
-];
+    { name: 'PHP', icon: <FaPhp className="text-[#777BB4]" />, color: 'from-indigo-500 to-blue-500' },
+    { name: 'Laravel', icon: <FaLaravel className="text-[#FF2D20]" />, color: 'from-red-500 to-rose-500' },
+    { name: 'MySQL Database', icon: <FaDatabase className="text-[#4479A1]" />, color: 'from-teal-500 to-cyan-500' },
+    { name: 'JavaScript', icon: <FaJsSquare className="text-[#F7DF1E]" />, color: 'from-yellow-400 to-amber-500' },
+    { name: 'Microsoft Office', icon: <FaMicrosoft className="text-[#F25022]" />, color: 'from-emerald-500 to-green-600' },
+  ];
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -35,13 +57,38 @@ const About = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Judul dengan animasi */}
+        {/* Judul dengan animasi dan toggle */}
         <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="inline-block">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4 relative">
-              About Me
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent relative">
+                {currentTranslations.title}
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
+              </h2>
+              {/* Language Toggle Buttons */}
+              <div className="flex bg-white/80 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg overflow-hidden">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                    language === 'en'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                  }`}
+                >
+                  <span>EN</span>
+                </button>
+                <button
+                  onClick={() => setLanguage('id')}
+                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                    language === 'id'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                  }`}
+                >
+                  <span>ID</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -96,26 +143,20 @@ const About = () => {
               <div className="space-y-6">
                 <div className="transform hover:translate-x-2 transition-transform duration-300">
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    I am a <span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Fresh Graduate</span> from Andalas University majoring in Information Systems with a great passion for building a career in the information technology field. During my studies, I was actively involved in student organizations as a <span className="font-semibold text-indigo-600">GIS Laboratory Assistant</span>.
+                    {currentTranslations.paragraph1}
                   </p>
                 </div>
 
                 <div className="transform hover:translate-x-2 transition-transform duration-300 delay-100">
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    I also served as <span className="font-semibold text-purple-600">General Secretary of FSI FTI UNAND</span>, balancing organizational responsibilities while maintaining focus on studies, graduating on time with a <span className="font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">GPA of 3.78</span>.
-                  </p>
-                </div>
-
-                <div className="transform hover:translate-x-2 transition-transform duration-300 delay-200">
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    I have internship experience at <span className="font-semibold text-blue-600">LLDIKTI Region X Padang</span> as a Programmer, developing SPPD applications. I'm seeking opportunities to contribute further to the IT industry.
+                    {currentTranslations.paragraph2}
                   </p>
                 </div>
 
                 {/* Contact CTA */}
                 <div className="pt-4 border-t border-gray-200">
                   <p className="text-gray-600 mb-4">
-                    Let's connect and build something amazing together!
+                    {currentTranslations.connectText}
                   </p>
                   <div className="flex gap-4">
                     {/* Contact Me Button */}
@@ -130,7 +171,7 @@ const About = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                           d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
-                      Contact Me
+                      {currentTranslations.contactButton}
                     </button>
                   </div>
                 </div>
@@ -145,7 +186,7 @@ const About = () => {
           <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
             <h4 className="font-bold text-gray-800 mb-8 text-2xl flex items-center justify-center">
               <span className="mr-3 text-3xl">🚀</span>
-              My Skills
+              {currentTranslations.skillsTitle}
             </h4>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {skills.map((skill, index) => (

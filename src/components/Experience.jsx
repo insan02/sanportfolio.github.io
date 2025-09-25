@@ -4,39 +4,92 @@ const Experience = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [selectedScreenshot, setSelectedScreenshot] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [language, setLanguage] = useState('en') // 'en' for English, 'id' for Indonesian
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
-  const experiences = [
-    {
-      id: 1,
-      position: "Website Developer Intern",
-      company: "LLDIKTI X Padang",
-      duration: "1 Month",
-      period: "2024",
-      location: "West Sumatra, Indonesia",
-      type: "Internship",
-      description: "Developed a comprehensive web application for SPPD (Official Travel Order) management system that streamlines the process of creating, approving, and tracking official travel requests within the institution.",
-      responsibilities: [
-        "Designed and developed an advanced SPPD web application with Initial Payment feature",
-        "Designed and created a responsive user interface (UI/UX)",
-        "Conducted testing on the developed application",
-        "Collaborated with team members in system requirements analysis"
-      ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
-      screenshots: [
-        "sslldikti1.png",
-        "sslldikti2.png",
-        "sslldikti3.png",
-        "sslldikti4.png"
-      ],
-      companyLogo: "lldikti.png",
-      color: "from-blue-500 to-indigo-600"
+  const translations = {
+    en: {
+      title: "Experience",
+      duration: "Duration",
+      screenshots: "Screenshots",
+      screenshotsModal: "Screenshots",
+      screenshotOf: "Screenshot {current} of {total}",
+      view: "View",
+      experiences: [
+        {
+          id: 1,
+          position: "Website Developer (Intern)",
+          company: "LLDIKTI X Padang",
+          duration: "1 Month",
+          period: "2024",
+          location: "West Sumatra, Indonesia",
+          type: "Internship",
+          description: "Developed a comprehensive web application for SPPD (Official Travel Order) management system that streamlines the process of creating, approving, and tracking official travel requests within the institution.",
+          responsibilities: [
+            "Designed and developed an advanced SPPD web application",
+            "Designed and created a responsive user interface (UI/UX)",
+            "Conducted testing on the developed application",
+            "Collaborated with team members in system requirements analysis"
+          ],
+          technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
+          screenshots: [
+            "sslldikti1.png",
+            "sslldikti2.png",
+            "sslldikti3.png",
+            "sslldikti4.png"
+          ],
+          companyLogo: "lldikti.png",
+          color: "from-blue-500 to-indigo-600"
+        }
+      ]
+    },
+    id: {
+      title: "Pengalaman Kerja",
+      duration: "Durasi",
+      screenshots: "Tangkapan Layar",
+      screenshotsModal: "Tangkapan Layar",
+      screenshotOf: "Tangkapan layar {current} dari {total}",
+      view: "Lihat",
+      experiences: [
+        {
+          id: 1,
+          position: "Pengembang Website (Magang)",
+          company: "LLDIKTI X Padang",
+          duration: "1 Bulan",
+          period: "2024",
+          location: "Sumatera Barat, Indonesia",
+          type: "Magang",
+          description: "Mengembangkan aplikasi web komprehensif untuk sistem manajemen SPPD (Surat Perintah Perjalanan Dinas) yang merampingkan proses pembuatan, persetujuan, dan pelacakan permintaan perjalanan dinas dalam institusi.",
+          responsibilities: [
+            "Merancang dan mengembangkan aplikasi web SPPD lanjutan",
+            "Merancang dan membuat antarmuka pengguna yang responsif (UI/UX)",
+            "Melakukan pengujian pada aplikasi yang dikembangkan",
+            "Berkolaborasi dengan anggota tim dalam analisis kebutuhan sistem"
+          ],
+          technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
+          screenshots: [
+            "sslldikti1.png",
+            "sslldikti2.png",
+            "sslldikti3.png",
+            "sslldikti4.png"
+          ],
+          companyLogo: "lldikti.png",
+          color: "from-blue-500 to-indigo-600"
+        }
+      ]
     }
-  ]
+  }
+
+  const currentTranslations = translations[language]
+  const experiences = currentTranslations.experiences
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'id' : 'en')
+  }
 
   const openScreenshots = (experience, index = 0) => {
     setSelectedScreenshot(experience)
@@ -60,9 +113,15 @@ const Experience = () => {
     )
   }
 
+  const formatScreenshotText = (template, current, total) => {
+    return template.replace('{current}', current).replace('{total}', total)
+  }
+
   return (
     <>
       <section id="experience" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+
+
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
@@ -73,11 +132,38 @@ const Experience = () => {
         <div className="container mx-auto px-6 relative z-10">
           {/* Section Header */}
           <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-block mb-4">
-              <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 relative">
-                Experience
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
-              </h2>
+            <div className="inline-block mb-4 relative">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent relative">
+                  {currentTranslations.title}
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
+                </h2>
+                {/* Language Toggle Buttons */}
+                <div className="flex bg-white/80 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg overflow-hidden">
+                  <button
+                    onClick={() => setLanguage('en')}
+                    className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                      language === 'en'
+                        ? 'bg-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                    }`}
+                  >
+                    
+                    <span>EN</span>
+                  </button>
+                  <button
+                    onClick={() => setLanguage('id')}
+                    className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                      language === 'id'
+                        ? 'bg-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                    }`}
+                  >
+                    
+                    <span>ID</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -177,7 +263,7 @@ const Experience = () => {
                     <div className="mt-8">
                       <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                         <span className="text-2xl">📸</span>
-                        Screenshots
+                        {currentTranslations.screenshots}
                       </h4>
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         {exp.screenshots.map((screenshot, idx) => (
@@ -198,7 +284,7 @@ const Experience = () => {
                               </svg>
                             </div>
                             <div className="absolute bottom-1 left-1 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">
-                              View {idx + 1}
+                              {currentTranslations.view} {idx + 1}
                             </div>
                           </div>
                         ))}
@@ -219,8 +305,8 @@ const Experience = () => {
             {/* Modal Header */}
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 flex justify-between items-center">
               <div>
-                <h3 className="text-2xl font-bold">Screenshots</h3>
-                <p className="text-blue-100">Screenshot {currentImageIndex + 1} of {selectedScreenshot.screenshots.length}</p>
+                <h3 className="text-2xl font-bold">{currentTranslations.screenshotsModal}</h3>
+                <p className="text-blue-100">{formatScreenshotText(currentTranslations.screenshotOf, currentImageIndex + 1, selectedScreenshot.screenshots.length)}</p>
               </div>
               <button
                 onClick={closeScreenshots}

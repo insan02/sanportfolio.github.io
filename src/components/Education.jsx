@@ -4,37 +4,78 @@ import { FaGraduationCap, FaCalendarAlt, FaTrophy, FaBook, FaStar } from "react-
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [activeCard, setActiveCard] = useState(null)
+  const [language, setLanguage] = useState('en') // 'en' for English, 'id' for Indonesian
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
-  const educationData = [
-    {
-      id: 1,
-      level: "Senior High School",
-      institution: "SMA N 1 Bukittinggi",
-      period: "2018 - 2021",
-      location: "Bukittinggi, West Sumatra",
-      major: "Science",
-      icon: <FaBook className="text-blue-500" />,
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "from-blue-50 to-cyan-50"
+  const translations = {
+    en: {
+      title: "Education",
+      major: "Major",
+      gpa: "GPA",
+      educationData: [
+        {
+          id: 1,
+          level: "Senior High School",
+          institution: "SMA N 1 Bukittinggi",
+          period: "2018 - 2021",
+          location: "Bukittinggi, West Sumatra",
+          major: "Science",
+          icon: <FaBook className="text-blue-500" />,
+          color: "from-blue-500 to-cyan-500",
+          bgColor: "from-blue-50 to-cyan-50"
+        },
+        {
+          id: 2,
+          level: "Bachelor's Degree",
+          institution: "Andalas University",
+          period: "2021 - 2025",
+          location: "Padang, West Sumatra",
+          major: "Information Systems",
+          gpa: "3.78",
+          icon: (<img src="unand.png" alt="Logo Universitas Andalas" className="w-10 h-10 object-contain"/>),
+          color: "from-purple-500 to-indigo-500",
+          bgColor: "from-purple-50 to-indigo-50"
+        }
+      ]
     },
-    {
-      id: 2,
-      level: "Bachelor's Degree",
-      institution: "Andalas University",
-      period: "2021 - 2025",
-      location: "Padang, West Sumatra",
-      major: "Information Systems",
-      gpa: "3.78",
-      icon: (<img src="unand.png" alt="Logo Universitas Andalas" className="w-10 h-10 object-contain"/>),
-      color: "from-purple-500 to-indigo-500",
-      bgColor: "from-purple-50 to-indigo-50"
+    id: {
+      title: "Pendidikan",
+      major: "Jurusan",
+      gpa: "IPK",
+      educationData: [
+        {
+          id: 1,
+          level: "Sekolah Menengah Atas",
+          institution: "SMA N 1 Bukittinggi",
+          period: "2018 - 2021",
+          location: "Bukittinggi, Sumatera Barat",
+          major: "IPA (Ilmu Pengetahuan Alam)",
+          icon: <FaBook className="text-blue-500" />,
+          color: "from-blue-500 to-cyan-500",
+          bgColor: "from-blue-50 to-cyan-50"
+        },
+        {
+          id: 2,
+          level: "Sarjana",
+          institution: "Universitas Andalas",
+          period: "2021 - 2025",
+          location: "Padang, Sumatera Barat",
+          major: "Sistem Informasi",
+          gpa: "3.78",
+          icon: (<img src="unand.png" alt="Logo Universitas Andalas" className="w-10 h-10 object-contain"/>),
+          color: "from-purple-500 to-indigo-500",
+          bgColor: "from-purple-50 to-indigo-50"
+        }
+      ]
     }
-  ]
+  }
+
+  const currentTranslations = translations[language]
+  const educationData = currentTranslations.educationData
 
   return (
     <section id="education" className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50 relative overflow-hidden">
@@ -49,11 +90,35 @@ const Education = () => {
         {/* Section Title */}
         <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="inline-block">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4 relative">
-              {/* <FaGraduationCap className="inline-block mr-4 text-purple-500" /> */}
-              Education
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent relative">
+                {currentTranslations.title}
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
+              </h2>
+              {/* Language Toggle Buttons */}
+              <div className="flex bg-white/80 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg overflow-hidden">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                    language === 'en'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                  }`}
+                >
+                  <span>EN</span>
+                </button>
+                <button
+                  onClick={() => setLanguage('id')}
+                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                    language === 'id'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                  }`}
+                >
+                  <span>ID</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -109,7 +174,7 @@ const Education = () => {
                       {edu.major && (
                         <div className="flex items-center space-x-2">
                           <FaBook className="text-blue-500" />
-                          <span className="font-semibold text-gray-700">Major: </span>
+                          <span className="font-semibold text-gray-700">{currentTranslations.major}: </span>
                           <span className="text-gray-600">{edu.major}</span>
                         </div>
                       )}
@@ -117,7 +182,7 @@ const Education = () => {
                       {edu.gpa && (
                         <div className="flex items-center space-x-2">
                           <FaStar className="text-yellow-500" />
-                          <span className="font-semibold text-gray-700">GPA: </span>
+                          <span className="font-semibold text-gray-700">{currentTranslations.gpa}: </span>
                           <span className="text-lg font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                             {edu.gpa}
                           </span>
@@ -151,7 +216,7 @@ const Education = () => {
                 <div className="relative w-full flex-1 overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                   <img 
                     src="me6.jpg" 
-                    alt="Graduation Photo - Nurul Insan"
+                    alt={language === 'en' ? "Graduation Photo - Nurul Insan" : "Foto Wisuda - Nurul Insan"}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
                       // Fallback if image doesn't exist
@@ -163,8 +228,15 @@ const Education = () => {
                   {/* Fallback placeholder */}
                   <div className="w-full h-full bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100 flex flex-col items-center justify-center text-gray-500" style={{display: 'none'}}>
                     <FaGraduationCap className="text-8xl mb-6 text-purple-400" />
-                    <p className="text-2xl font-semibold mb-4">Graduation Photo</p>
-                    <p className="text-lg text-center px-4">Replace 'me6.jpg' with your actual photo</p>
+                    <p className="text-2xl font-semibold mb-4">
+                      {language === 'en' ? 'Graduation Photo' : 'Foto Wisuda'}
+                    </p>
+                    <p className="text-lg text-center px-4">
+                      {language === 'en' 
+                        ? "Replace 'me6.jpg' with your actual photo" 
+                        : "Ganti 'me6.jpg' dengan foto Anda yang sebenarnya"
+                      }
+                    </p>
                   </div>
                   
                   {/* Subtle overlay gradient */}

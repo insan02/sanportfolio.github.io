@@ -4,71 +4,152 @@ const Projects = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
   const [hoveredProject, setHoveredProject] = useState(null)
+  const [language, setLanguage] = useState('en') // 'en' for English, 'id' for Indonesian
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
-  const projects = [
-    {
-      id: 1,
-      title: "Correspondence Information System for BEM-HIMA Andalas University",
-      shortTitle: "Correspondence Information System",
-      category: "Academic Project",
-      description: "Developed a comprehensive digital solution to optimize correspondence administration management for student organizations at Andalas University as part of the Framework-Based Programming course project. This system addresses critical challenges in manual administrative processes, including document loss, recording inaccuracies, and information delivery delays.",
-      image: "sssurat.png",
-      screenshots: [
-        "sssurat1.png",
-        "sssurat2.png",
-        "sssurat3.png"
-      ],
-      technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS"],
-      features: [
-        "Digital management of incoming and outgoing correspondence", 
-        "Organized digital archive storage", 
-        "Use php laravel for backend and bootstrap for frontend", 
-        "User-friendly interface for BEM and HIMA administrators"
+  const translations = {
+    en: {
+      title: "Projects",
+      keyFeatures: "Key Features",
+      technologiesUsed: "Technologies Used",
+      screenshots: "Screenshots",
+      viewDetails: "View Details",
+      view: "View",
+      projects: [
+        {
+          id: 1,
+          title: "Correspondence Information System for BEM-HIMA Andalas University",
+          shortTitle: "Correspondence Information System",
+          category: "Academic Project",
+          description: "Developed a comprehensive digital solution to optimize correspondence administration management for student organizations at Andalas University as part of the Framework-Based Programming course project. This system addresses critical challenges in manual administrative processes, including document loss, recording inaccuracies, and information delivery delays.",
+          image: "sssurat.png",
+          screenshots: [
+            "sssurat1.png",
+            "sssurat2.png",
+            "sssurat3.png"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS"],
+          features: [
+            "Digital management of incoming and outgoing correspondence", 
+            "Organized digital archive storage", 
+            "Use php laravel for backend and bootstrap for frontend", 
+            "User-friendly interface for BEM and HIMA administrators"
+          ]
+        },
+        {
+          id: 2,
+          title: "Final Project in College: Development of a Decision Support System for Eyeglass Frame Selection Recommendations Using Profile Matching and Simple Multi Attribute Rating Technique (SMART) Methods at Sidi Pingai Eyeglass Store Bukittinggi",
+          shortTitle: "Eyeglass Frame Selection DSS",
+          category: "Thesis Project",
+          description: "Successfully developed an intelligent decision support system for eyeglass frame selection at Sidi Pingai Eyeglass Store, Bukittinggi, as part of my final project (thesis). This innovative system enhances customer experience and optimizes product recommendations.",
+          image: "ssspk.jpg",
+          screenshots: [
+            "ssspk1.jpg",
+            "ssspk2.jpg",
+            "ssspk3.jpg"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
+          features: ["Profile Matching Algorithm - Analyzes customer facial characteristics and preferences", 
+            "SMART (Simple Multi Attribute Rating Technique) - Multi-criteria decision analysis", 
+            "Decision Support System (DSS) architecture", 
+            "Use php laravel for backend and javascript for frontend"]
+        },
+        {
+          id: 3,
+          title: "Rent Car",
+          shortTitle: "Car Rental System",
+          category: "Portfolio Projek",
+          description: "Comprehensive car rental application featuring dual interfaces for administrators and customers. This full-stack web application streamlines vehicle rental operations with advanced booking management and fleet administration capabilities.",
+          image: "ssrent.png",
+          screenshots: [
+            "ssrent1.png",
+            "ssrent2.png",
+            "ssrent3.png"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
+          features: ["Fleet Management - Add, edit, and remove vehicles with detailed specifications",
+            "Booking Management - View, approve, reject, and modify customer reservations", 
+            "Online Booking System - Real-time availability checking and instant reservations", 
+            "Booking History - Complete rental history with invoice downloads"
+          ]
+        }
       ]
     },
-    {
-      id: 2,
-      title: "Final Project in College: Development of a Decision Support System for Eyeglass Frame Selection Recommendations Using Profile Matching and Simple Multi Attribute Rating Technique (SMART) Methods at Sidi Pingai Eyeglass Store Bukittinggi",
-      shortTitle: "Eyeglass Frame Selection DSS",
-      category: "Thesis Project",
-      description: "Successfully developed an intelligent decision support system for eyeglass frame selection at Sidi Pingai Eyeglass Store, Bukittinggi, as part of my final project (thesis). This innovative system enhances customer experience and optimizes product recommendations.",
-      image: "ssspk.jpg",
-      screenshots: [
-        "ssspk1.jpg",
-        "ssspk2.jpg",
-        "ssspk3.jpg"
-      ],
-      technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
-      features: ["Profile Matching Algorithm - Analyzes customer facial characteristics and preferences", 
-        "SMART (Simple Multi Attribute Rating Technique) - Multi-criteria decision analysis", 
-        "Decision Support System (DSS) architecture", 
-        "Use php laravel for backend and javascript for frontend"]
-    },
-    {
-      id: 3,
-      title: "Rent Car",
-      shortTitle: "Car Rental System",
-      category: "Web Application",
-      description: "Comprehensive car rental application featuring dual interfaces for administrators and customers. This full-stack web application streamlines vehicle rental operations with advanced booking management and fleet administration capabilities.",
-      image: "ssrent.png",
-      screenshots: [
-        "ssrent1.png",
-        "ssrent2.png",
-        "ssrent3.png"
-      ],
-      technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
-      features: ["Fleet Management - Add, edit, and remove vehicles with detailed specifications",
-        "Booking Management - View, approve, reject, and modify customer reservations", 
-        "Online Booking System - Real-time availability checking and instant reservations", 
-        "Booking History - Complete rental history with invoice downloads"
+    id: {
+      title: "Proyek",
+      keyFeatures: "Fitur Utama",
+      technologiesUsed: "Teknologi yang Digunakan",
+      screenshots: "Tangkapan Layar",
+      viewDetails: "Lihat Detail",
+      view: "Lihat",
+      projects: [
+        {
+          id: 1,
+          title: "Sistem Informasi Persuratan untuk BEM-HIMA Universitas Andalas",
+          shortTitle: "Sistem Informasi Persuratan",
+          category: "Proyek Akademik",
+          description: "Mengembangkan solusi digital komprehensif untuk mengoptimalkan manajemen administrasi persuratan untuk organisasi mahasiswa di Universitas Andalas sebagai bagian dari proyek mata kuliah Pemrograman Berbasis Framework. Sistem ini mengatasi tantangan kritis dalam proses administrasi manual, termasuk kehilangan dokumen, ketidakakuratan pencatatan, dan keterlambatan penyampaian informasi.",
+          image: "sssurat.png",
+          screenshots: [
+            "sssurat1.png",
+            "sssurat2.png",
+            "sssurat3.png"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS"],
+          features: [
+            "Manajemen digital surat masuk dan keluar", 
+            "Penyimpanan arsip digital yang terorganisir", 
+            "Menggunakan php laravel untuk backend dan bootstrap untuk frontend", 
+            "Antarmuka yang user-friendly untuk administrator BEM dan HIMA"
+          ]
+        },
+        {
+          id: 2,
+          title: "Tugas Akhir Kuliah: Pengembangan Sistem Pendukung Keputusan untuk Rekomendasi Pemilihan Frame Kacamata Menggunakan Metode Profile Matching dan Simple Multi Attribute Rating Technique (SMART) di Toko Kacamata Sidi Pingai Bukittinggi",
+          shortTitle: "SPK Pemilihan Frame Kacamata",
+          category: "Proyek Skripsi",
+          description: "Berhasil mengembangkan sistem pendukung keputusan cerdas untuk pemilihan frame kacamata di Toko Kacamata Sidi Pingai, Bukittinggi, sebagai bagian dari tugas akhir (skripsi) saya. Sistem inovatif ini meningkatkan pengalaman pelanggan dan mengoptimalkan rekomendasi produk.",
+          image: "ssspk.jpg",
+          screenshots: [
+            "ssspk1.jpg",
+            "ssspk2.jpg",
+            "ssspk3.jpg"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
+          features: ["Algoritma Profile Matching - Menganalisis karakteristik wajah dan preferensi pelanggan", 
+            "SMART (Simple Multi Attribute Rating Technique) - Analisis keputusan multi-kriteria", 
+            "Arsitektur Sistem Pendukung Keputusan (SPK)", 
+            "Menggunakan php laravel untuk backend dan javascript untuk frontend"]
+        },
+        {
+          id: 3,
+          title: "Rent Car",
+          shortTitle: "Sistem Rental Mobil",
+          category: "Projek Portfolio",
+          description: "Aplikasi rental mobil komprehensif yang menampilkan antarmuka ganda untuk administrator dan pelanggan. Aplikasi web full-stack ini merampingkan operasi rental kendaraan dengan manajemen pemesanan lanjutan dan kemampuan administrasi armada.",
+          image: "ssrent.png",
+          screenshots: [
+            "ssrent1.png",
+            "ssrent2.png",
+            "ssrent3.png"
+          ],
+          technologies: ["PHP", "Laravel", "MySql", "Bootstrap", "HTML", "CSS", "Javascript"],
+          features: ["Manajemen Armada - Menambah, mengedit, dan menghapus kendaraan dengan spesifikasi detail",
+            "Manajemen Pemesanan - Melihat, menyetujui, menolak, dan memodifikasi reservasi pelanggan", 
+            "Sistem Pemesanan Online - Pengecekan ketersediaan real-time dan reservasi instan", 
+            "Riwayat Pemesanan - Riwayat rental lengkap dengan unduhan invoice"
+          ]
+        }
       ]
     }
-  ]
+  }
+
+  const currentTranslations = translations[language]
+  const projects = currentTranslations.projects
 
   const openModal = (project) => {
     setSelectedProject(project)
@@ -92,10 +173,35 @@ const Projects = () => {
           {/* Enhanced Header */}
           <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-block mb-4">
-              <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4 relative">
-                Projects
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
-              </h2>
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent relative">
+                  {currentTranslations.title}
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
+                </h2>
+                {/* Language Toggle Buttons */}
+                <div className="flex bg-white/80 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg overflow-hidden">
+                  <button
+                    onClick={() => setLanguage('en')}
+                    className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                      language === 'en'
+                        ? 'bg-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                    }`}
+                  >
+                    <span>EN</span>
+                  </button>
+                  <button
+                    onClick={() => setLanguage('id')}
+                    className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                      language === 'id'
+                        ? 'bg-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                    }`}
+                  >
+                    <span>ID</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -139,7 +245,7 @@ const Projects = () => {
                   {/* Hover Overlay Content */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <div className="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      <div className="text-sm font-medium mb-2">✨ Key Features</div>
+                      <div className="text-sm font-medium mb-2">✨ {language === 'en' ? 'Key Features' : 'Fitur Utama'}</div>
                       <div className="flex flex-wrap justify-center gap-1 px-4">
                         {project.features.slice(0, 2).map((feature, idx) => (
                           <span key={idx} className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs">
@@ -205,7 +311,7 @@ const Projects = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                         </svg>
-                        View Details
+                        {currentTranslations.viewDetails}
                       </span>
                       
                       {/* Button Animation */}
@@ -265,7 +371,7 @@ const Projects = () => {
               <div className="mb-8">
                 <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                   <span className="text-2xl">✨</span>
-                  Key Features
+                  {currentTranslations.keyFeatures}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {selectedProject.features.map((feature, index) => (
@@ -281,7 +387,7 @@ const Projects = () => {
               <div className="mb-8">
                 <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                   <span className="text-2xl">🛠️</span>
-                  Technologies Used
+                  {currentTranslations.technologiesUsed}
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {selectedProject.technologies.map((tech, index) => (
@@ -299,7 +405,7 @@ const Projects = () => {
               <div>
                 <h4 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
                   <span className="text-2xl">📸</span>
-                  Screenshots
+                  {currentTranslations.screenshots}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {selectedProject.screenshots.map((screenshot, index) => (
@@ -311,7 +417,7 @@ const Projects = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group-hover:from-black/60 transition-all duration-300"></div>
                       <div className="absolute bottom-4 left-4 text-white font-semibold bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm">
-                        View {index + 1}
+                        {currentTranslations.view} {index + 1}
                       </div>
                     </div>
                   ))}
