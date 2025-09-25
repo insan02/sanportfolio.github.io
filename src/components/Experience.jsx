@@ -47,7 +47,7 @@ const Experience = () => {
         },
         {
           id: 2,
-          position: "WordPress Developer",
+          position: "WordPress Developer (Lecturer Dedication)",
           company: "Nagari Siguntur Pesisir Selatan",
           duration: "2 Months",
           period: "Oct 2024 - Nov 2024",
@@ -105,7 +105,7 @@ const Experience = () => {
         },
         {
           id: 2,
-          position: "WordPress Developer",
+          position: "WordPress Developer (Pengabdian Dosen)",
           company: "Nagari Siguntur Pesisir Selatan",
           duration: "2 Bulan",
           period: "Okt 2024 - Nov 2024",
