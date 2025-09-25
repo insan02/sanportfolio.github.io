@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react'
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isCVDropdownOpen, setIsCVDropdownOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleCVDropdown = () => setIsCVDropdownOpen(!isCVDropdownOpen)
 
   // Deteksi scroll
   useEffect(() => {
@@ -19,6 +21,18 @@ const Hero = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isCVDropdownOpen && !event.target.closest('.cv-dropdown')) {
+        setIsCVDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isCVDropdownOpen])
 
   return (
     <section id="home" className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white min-h-screen relative overflow-hidden">
@@ -197,8 +211,6 @@ const Hero = () => {
               <div className="absolute top-1/3 -right-8 w-3 h-3 bg-gradient-to-br from-blue-300 to-blue-400 rounded-full animate-bounce"></div>
               <div className="absolute bottom-1/3 -left-8 w-5 h-5 bg-gradient-to-br from-green-300 to-green-400 rounded-full animate-float-slow shadow-lg"></div>
             </div>
-
-            
           </div>
 
           {/* Enhanced Text Content */}
@@ -211,11 +223,10 @@ const Hero = () => {
               <p className="text-xl md:text-2xl mb-8 font-light text-white/90">
                 <span className="typing-effect">Website Developer</span>
               </p>
-
             </div>
           </div>
           
-          {/* Enhanced Button Section */}
+          {/* Enhanced Button Section with CV Dropdown */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <a 
               href="#project" 
@@ -225,17 +236,59 @@ const Hero = () => {
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </a>
             
-            <a 
-              href="/CV English Nurul Insan.pdf" 
-              download="CV English Nurul Insan.pdf"
-              className="group border-2 border-yellow-400/60 text-yellow-400 px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 flex items-center justify-center gap-2 relative overflow-hidden"
-            >
-              <svg className="w-5 h-5 relative z-10 group-hover:text-blue-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span className="relative z-10 group-hover:text-blue-800 transition-colors duration-300">Download CV</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-            </a>
+            {/* CV Download Dropdown */}
+            <div className="relative cv-dropdown">
+              <button 
+                onClick={toggleCVDropdown}
+                className="group border-2 border-yellow-400/60 text-yellow-400 px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 flex items-center justify-center gap-2 relative overflow-hidden"
+              >
+                <svg className="w-5 h-5 relative z-10 group-hover:text-blue-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span className="relative z-10 group-hover:text-blue-800 transition-colors duration-300">Download CV</span>
+                <svg className={`w-4 h-4 relative z-10 group-hover:text-blue-800 transition-all duration-300 ${isCVDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </button>
+
+              {/* Dropdown Menu */}
+              {isCVDropdownOpen && (
+                <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-2xl py-2 w-48 z-50">
+                  <a 
+                    href="/CV ind_Nurul Insan.pdf" 
+                    download="CV ind_Nurul Insan.pdf"
+                    className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 hover:text-blue-600"
+                    onClick={() => setIsCVDropdownOpen(false)}
+                  >
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">ID</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold">Bahasa Indonesia</div>
+                      <div className="text-xs text-gray-500">CV_ind_Nurul Insan.pdf</div>
+                    </div>
+                  </a>
+                  
+                  <div className="mx-4 my-1 h-px bg-gray-200"></div>
+                  
+                  <a 
+                    href="/CV eng_Nurul Insan.pdf" 
+                    download="CV eng_Nurul Insan.pdf"
+                    className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 hover:text-blue-600"
+                    onClick={() => setIsCVDropdownOpen(false)}
+                  >
+                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">EN</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold">English Version</div>
+                      <div className="text-xs text-gray-500">CV_eng_Nurul Insan.pdf</div>
+                    </div>
+                  </a>
+                </div>
+              )}
+            </div>
             
             <a 
               href="#contact" 
@@ -282,7 +335,7 @@ const Hero = () => {
         
         @keyframes typing {
           from { width: 0 }
-          to { width: 17ch } /* ch = width karakter monospace */
+          to { width: 17ch }
         }
 
         @keyframes blink-caret {
@@ -322,7 +375,7 @@ const Hero = () => {
           border-right: 2px solid white;
           white-space: nowrap;
           width: 0;
-          animation: typing 3s steps(17, end) forwards, /* jumlah huruf 'Web Developer' = 18 + spasi */
+          animation: typing 3s steps(17, end) forwards,
                     blink-caret 0.75s step-end infinite;
         }
       `}</style>
