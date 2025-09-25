@@ -187,10 +187,12 @@ const Hero = () => {
               {/* Photo container */}
               <div className="relative w-full h-full rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-4 border-white/40 overflow-hidden transform group-hover:scale-110 transition-all duration-500 shadow-2xl group-hover:shadow-yellow-300/25">
                 
-                {/* Photo placeholder */}
-                <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                  <span className="text-gray-600 text-sm">Photo</span>
-                </div>
+                {/* Photo */}
+                <img 
+                  src="me1.png"
+                  alt="Nurul Insan Profile" 
+                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-110 contrast-110"
+                />
                 
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-yellow-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
