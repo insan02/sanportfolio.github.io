@@ -265,8 +265,8 @@ const Hero = () => {
                       <span className="text-white text-xs font-bold">ID</span>
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-sm">Bahasa Indonesia</div>
-                      <div className="text-xs text-gray-500 truncate">CV_ind_Nurul Insan.pdf</div>
+                      <div className="font-semibold text-sm">Indonesia</div>
+                      <div className="text-xs text-gray-500 truncate">CV ind_Nurul Insan.pdf</div>
                     </div>
                   </a>
                   
@@ -282,8 +282,8 @@ const Hero = () => {
                       <span className="text-white text-xs font-bold">EN</span>
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-sm">English Version</div>
-                      <div className="text-xs text-gray-500 truncate">CV_eng_Nurul Insan.pdf</div>
+                      <div className="font-semibold text-sm">English</div>
+                      <div className="text-xs text-gray-500 truncate">CV eng_Nurul Insan.pdf</div>
                     </div>
                   </a>
                 </div>
