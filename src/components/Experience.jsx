@@ -44,6 +44,29 @@ const Experience = () => {
           ],
           companyLogo: "lldikti.png",
           color: "from-blue-500 to-indigo-600"
+        },
+        {
+          id: 2,
+          position: "WordPress Developer",
+          company: "Nagari Siguntur Pesisir Selatan",
+          duration: "2 Months",
+          period: "Oct 2024 - Nov 2024",
+          location: "Pesisir Selatan, West Sumatra, Indonesia",
+          type: "Lecturer Dedication",
+          description: "Developed the official website of Nagari Siguntur based on WordPress to support village administration and enhance community engagement through digital transformation.",
+          responsibilities: [
+            "Developed the official website of Nagari Siguntur based on WordPress",
+            "Designed and built website layout and page structure",
+            "Implemented systems to support nagari administration and community engagement",
+            "Conducted implementation and testing of the website before deployment"
+          ],
+          technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
+          screenshots: [
+            "sssiguntur1.png",
+            "sssiguntur2.png"
+          ],
+          companyLogo: "siguntur.png",
+          color: "from-green-500 to-teal-600"
         }
       ]
     },
@@ -79,6 +102,29 @@ const Experience = () => {
           ],
           companyLogo: "lldikti.png",
           color: "from-blue-500 to-indigo-600"
+        },
+        {
+          id: 2,
+          position: "WordPress Developer",
+          company: "Nagari Siguntur Pesisir Selatan",
+          duration: "2 Bulan",
+          period: "Okt 2024 - Nov 2024",
+          location: "Pesisir Selatan, Sumatera Barat, Indonesia",
+          type: "Pengabdian Dosen",
+          description: "Mengembangkan website resmi Nagari Siguntur berbasis WordPress untuk mendukung administrasi nagari dan meningkatkan keterlibatan masyarakat melalui transformasi digital.",
+          responsibilities: [
+            "Mengembangkan website resmi Nagari Siguntur berbasis WordPress",
+            "Mendesain dan membangun tampilan serta struktur halaman website",
+            "Menerapkan sistem untuk mendukung administrasi nagari dan keterlibatan masyarakat",
+            "Melakukan implementasi dan uji coba website sebelum digunakan"
+          ],
+          technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
+          screenshots: [
+            "sssiguntur1.png",
+            "sssiguntur2.png"
+          ],
+          companyLogo: "siguntur.png",
+          color: "from-green-500 to-teal-600"
         }
       ]
     }
@@ -274,7 +320,7 @@ const Experience = () => {
                           >
                             <img
                               src={screenshot}
-                              alt={`SPPD App Screenshot ${idx + 1}`}
+                              alt={`${exp.company} Screenshot ${idx + 1}`}
                               className="w-full h-24 object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/80 transition-all duration-300"></div>
@@ -324,7 +370,7 @@ const Experience = () => {
               <div className="relative h-96 lg:h-[500px] bg-gray-100 flex items-center justify-center">
                 <img
                   src={selectedScreenshot.screenshots[currentImageIndex]}
-                  alt={`SPPD App Screenshot ${currentImageIndex + 1}`}
+                  alt={`${selectedScreenshot.company} Screenshot ${currentImageIndex + 1}`}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
                 />
                 
