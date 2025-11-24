@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { FaPhp, FaLaravel, FaDatabase, FaJsSquare, FaMicrosoft } from "react-icons/fa";
 
-const About = () => {
+const About = ({ language }) => {
   const [isVisible, setIsVisible] = useState(false)
-  const [hoveredSkill, setHoveredSkill] = useState(null)
-  const [language, setLanguage] = useState('en') // 'en' for English, 'id' for Indonesian
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100)
@@ -14,225 +12,91 @@ const About = () => {
   const translations = {
     en: {
       title: "About Me",
-      skillsTitle: "My Skills",
-      connectText: "Let's connect to discuss collaboration opportunities in web development!",
-      contactButton: "Contact Me",
-      paragraph1: "I am a Fresh Graduate from Andalas University majoring in Information Systems with a passion for web development and information technology. Experienced as a Web Developer intern using PHP Laravel and Bootstrap during an internship at LLDikti Wilayah X Padang, taking full responsibility for developing the SPPD application from frontend to backend, including testing.",
-      paragraph2: "With a combination of technical skills in full-stack development (PHP Laravel, MySQL, Bootstrap) and soft skills honed through various organizational experiences, I have strong adaptability and am always ready to learn new technologies. Ready to contribute to the IT industry, particularly as a PHP Laravel Developer."
+      skillsTitle: "Tech Stack",
+      connectText: "Let's connect to discuss collaboration opportunities!",
+      contactButton: "Get In Touch",
+      paragraph1: "I am a Fresh Graduate from Andalas University majoring in Information Systems. Passionate about web development and clean code. Experienced as a Web Developer intern using PHP Laravel and Bootstrap at LLDikti Wilayah X Padang.",
+      paragraph2: "Blending technical expertise in full-stack development (PHP Laravel, MySQL) with strong adaptability honed through organizational leadership. I am eager to tackle new challenges in the IT industry."
     },
     id: {
       title: "Tentang Saya",
-      skillsTitle: "Keahlian Saya",
-      connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi di bidang web development!",
+      skillsTitle: "Keahlian Teknis",
+      connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi!",
       contactButton: "Hubungi Saya",
-      paragraph1: "Lulusan baru Sistem Informasi Universitas Andalas (IPK 3.78) dengan passion dalam pengembangan web dan teknologi informasi. Memiliki pengalaman magang sebagai Web Developer menggunakan PHP Laravel dan Bootstrap selama magang di LLDikti Wilayah X Padang, bertanggung jawab penuh dalam pengembangan aplikasi SPPD mulai dari frontend hingga backend serta pengujiannya.",
-      paragraph2: "Dengan kombinasi technical skills dalam full-stack development (PHP Laravel, MySQL, Bootstrap) dan soft skills yang terasah dari berbagai pengalaman organisasi, saya memiliki kemampuan adaptasi yang cepat dan selalu siap mempelajari teknologi baru. Siap berkontribusi dalam dunia IT khususnya sebagai PHP Laravel Developer."
+      paragraph1: "Lulusan Sistem Informasi Universitas Andalas (IPK 3.78) dengan passion dalam pengembangan web. Berpengalaman magang sebagai Web Developer (PHP Laravel & Bootstrap) di LLDikti Wilayah X Padang.",
+      paragraph2: "Memadukan keahlian teknis full-stack (PHP Laravel, MySQL) dengan kemampuan adaptasi yang kuat. Saya siap berkontribusi dalam industri IT, khususnya untuk posisi PHP Laravel Developer."
     }
   }
 
   const currentTranslations = translations[language]
 
   const skills = [
-    { name: 'PHP', icon: <FaPhp className="text-[#777BB4]" />, color: 'from-indigo-500 to-blue-500' },
-    { name: 'Laravel', icon: <FaLaravel className="text-[#FF2D20]" />, color: 'from-red-500 to-rose-500' },
-    { name: 'MySQL Database', icon: <FaDatabase className="text-[#4479A1]" />, color: 'from-teal-500 to-cyan-500' },
-    { name: 'JavaScript', icon: <FaJsSquare className="text-[#F7DF1E]" />, color: 'from-yellow-400 to-amber-500' },
-    { name: 'Microsoft Office', icon: <FaMicrosoft className="text-[#F25022]" />, color: 'from-emerald-500 to-green-600' },
+    { name: 'PHP', icon: <FaPhp />, color: '#777BB4' },
+    { name: 'Laravel', icon: <FaLaravel />, color: '#FF2D20' },
+    { name: 'MySQL', icon: <FaDatabase />, color: '#4479A1' },
+    { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
+    { name: 'Office', icon: <FaMicrosoft />, color: '#F25022' },
   ];
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-      </div>
+    <section id="about" className="py-24 bg-gradient-to-b from-white via-emerald-50/80 to-white relative overflow-hidden text-black">
+  {/* Background Gradasi Putih dan Hijau Lebih Jelas */}
+  <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white/90 via-emerald-200/50 to-white/70 rounded-full blur-[120px]"></div>
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-white/90 via-emerald-100/50 to-white/70 rounded-full blur-[120px]"></div>
+
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Judul dengan animasi dan toggle */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="inline-block">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent relative">
-                {currentTranslations.title}
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transform scale-x-0 animate-[scale-x_1s_ease-out_0.5s_forwards] origin-left"></div>
-              </h2>
-              {/* Language Toggle Buttons */}
-              <div className="flex bg-white/80 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg overflow-hidden">
-                <button
-                  onClick={() => setLanguage('en')}
-                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
-                    language === 'en'
-                      ? 'bg-blue-500 text-white shadow-md'
-                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
-                  }`}
-                >
-                  <span>EN</span>
-                </button>
-                <button
-                  onClick={() => setLanguage('id')}
-                  className={`px-3 py-2 font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
-                    language === 'id'
-                      ? 'bg-blue-500 text-white shadow-md'
-                      : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
-                  }`}
-                >
-                  <span>ID</span>
-                </button>
-              </div>
+        <div className={`flex flex-col md:flex-row justify-between items-end mb-16 gap-6 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000`}> 
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-black">
+              {currentTranslations.title}<span className="text-emerald-500">.</span>
+            </h2>
+            <div className="h-1 w-20 bg-emerald-500 rounded-full"></div>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-12 mb-20">
+          <div className="lg:col-span-5">
+            <div className="relative group h-full min-h-[350px] flex items-center justify-center">
+               <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 via-white to-gray-100 rounded-3xl transform rotate-2 transition-transform group-hover:rotate-3 border border-gray-300"></div>
+               <div className="relative z-20 w-full h-full p-4 grid grid-cols-3 gap-3">
+                  <div className="h-80 rounded-2xl overflow-hidden shadow-lg"><img src="me1.png" className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700" /></div>
+                  <div className="h-80 rounded-2xl overflow-hidden shadow-lg mt-8"><img src="me3.png" className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-700" /></div>
+                  <div className="h-80 rounded-2xl overflow-hidden shadow-lg"><img src="me2.png" className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700" /></div>
+               </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
+            <div className="space-y-6 leading-relaxed text-lg">
+              <p className="border-l-4 border-emerald-500 pl-6 py-1 bg-white/80 rounded-r-lg">
+                {currentTranslations.paragraph1}
+              </p>
+              <p className="pl-6 bg-white/80 rounded-lg p-4">{currentTranslations.paragraph2}</p>
+            </div>
+            <div className="pt-4">
+               <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-400 to-green-500 text-black rounded-full font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-emerald-300/50">
+                  {currentTranslations.contactButton}
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+               </a>
             </div>
           </div>
         </div>
 
-        {/* Main Content - 2 Columns with Equal Height */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          
-          {/* Kolom Foto */}
-          <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 h-full flex items-center">
-              <div className="flex justify-center items-center gap-4 w-full relative">
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-bounce"></div>
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20 animate-bounce delay-1000"></div>
-                
-                {/* Foto kiri */}
-                <div className="group relative w-56 h-72 overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-500 hover:rotate-1">
-                  <img 
-                    src="me1.png" 
-                    alt="Professional Photo Left"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 via-transparent to-transparent group-hover:from-blue-600/60 transition-all duration-500" />
-                </div>
-
-                {/* Foto tengah (utama) */}
-                <div className="group relative w-64 h-80 overflow-hidden rounded-2xl shadow-lg transform hover:scale-110 transition-all duration-500 z-10">
-                  <img 
-                    src="me3.png" 
-                    alt="Main Professional Photo"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-600/40 via-transparent to-transparent group-hover:from-indigo-600/60 transition-all duration-500" />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-500 -z-10"></div>
-                </div>
-
-                {/* Foto kanan */}
-                <div className="group relative w-56 h-72 overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-500 hover:-rotate-1">
-                  <img 
-                    src="me2.png" 
-                    alt="Professional Photo Right"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-600/40 via-transparent to-transparent group-hover:from-purple-600/60 transition-all duration-500" />
-                </div>
+        <div className="mt-24">
+          <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-black">
+            {currentTranslations.skillsTitle} <div className="h-px flex-1 bg-gray-300"></div>
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {skills.map((skill) => (
+              <div key={skill.name} className="group bg-white/80 border border-gray-200 p-6 rounded-2xl flex flex-col items-center gap-4 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }}>{skill.icon}</div>
+                <span className="text-sm font-bold text-black group-hover:text-emerald-500">{skill.name}</span>
               </div>
-            </div>
-          </div>
-
-          {/* Kolom Teks */}
-          <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-center">
-              <div className="space-y-6">
-                <div className="transform hover:translate-x-2 transition-transform duration-300">
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    {currentTranslations.paragraph1}
-                  </p>
-                </div>
-
-                <div className="transform hover:translate-x-2 transition-transform duration-300 delay-100">
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    {currentTranslations.paragraph2}
-                  </p>
-                </div>
-
-                {/* Contact CTA */}
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-gray-600 mb-4">
-                    {currentTranslations.connectText}
-                  </p>
-                  <div className="flex gap-4">
-                    {/* Contact Me Button */}
-                    <button 
-                      onClick={scrollToContact}
-                      className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white rounded-xl hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    >
-                      {/* Contact Icon */}
-                      <svg xmlns="http://www.w3.org/2000/svg" 
-                        className="w-5 h-5 mr-2" fill="none" 
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                      </svg>
-                      {currentTranslations.contactButton}
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Skills - Single Row with 6 Columns */}
-        <div className={`transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
-            <h4 className="font-bold text-gray-800 mb-8 text-2xl flex items-center justify-center">
-              <span className="mr-3 text-3xl">🚀</span>
-              {currentTranslations.skillsTitle}
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className={`group relative bg-white p-6 rounded-xl font-semibold text-gray-700 cursor-pointer transform transition-all duration-300 hover:scale-110 hover:-translate-y-2 shadow-md hover:shadow-xl flex flex-col items-center justify-center text-center min-h-[120px]`}
-                  style={{ 
-                    animationDelay: `${index * 100}ms`,
-                    animation: isVisible ? 'fadeInUp 0.6s ease-out forwards' : 'none'
-                  }}
-                  onMouseEnter={() => setHoveredSkill(skill.name)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}></div>
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                    <div className="text-3xl mb-3 group-hover:animate-bounce flex items-center justify-center">{skill.icon}</div>
-                    <div className={`text-sm transition-all duration-300 leading-tight ${hoveredSkill === skill.name ? 'text-transparent bg-gradient-to-r ' + skill.color + ' bg-clip-text font-bold' : ''}`}>
-                      {skill.name}
-                    </div>
-                  </div>
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${skill.color} rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10`}></div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes scale-x {
-          to {
-            transform: scaleX(1);
-          }
-        }
-      `}</style>
     </section>
   )
 }
