@@ -10,23 +10,29 @@ const About = ({ language }) => {
   }, [])
 
   const translations = {
-    en: {
-      title: "About Me",
-      skillsTitle: "Tech Stack",
-      connectText: "Let's connect to discuss collaboration opportunities!",
-      contactButton: "Get In Touch",
-      paragraph1: "I am a Fresh Graduate from Andalas University majoring in Information Systems. Passionate about web development and clean code. Experienced as a Web Developer intern using PHP Laravel and Bootstrap at LLDikti Wilayah X Padang.",
-      paragraph2: "Blending technical expertise in full-stack development (PHP Laravel, MySQL) with strong adaptability honed through organizational leadership. I am eager to tackle new challenges in the IT industry."
-    },
-    id: {
-      title: "Tentang Saya",
-      skillsTitle: "Keahlian Teknis",
-      connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi!",
-      contactButton: "Hubungi Saya",
-      paragraph1: "Lulusan Sistem Informasi Universitas Andalas (IPK 3.78) dengan passion dalam pengembangan web. Berpengalaman magang sebagai Web Developer (PHP Laravel & Bootstrap) di LLDikti Wilayah X Padang.",
-      paragraph2: "Memadukan keahlian teknis full-stack (PHP Laravel, MySQL) dengan kemampuan adaptasi yang kuat. Saya siap berkontribusi dalam industri IT, khususnya untuk posisi PHP Laravel Developer."
-    }
+  en: {
+    title: "About Me",
+    skillsTitle: "Tech Stack",
+    connectText: "Let's connect to discuss collaboration opportunities!",
+    contactButton: "Get In Touch",
+    paragraph1:
+      "Fresh graduate of Information Systems Department, Andalas University with bachelor's degree in computers. Has BNSP training and competency certification in Software Development with qualifications as a Junior Web Programmer. Has a great interest in the field of information technology, especially Website Developer and UI UX Design.",
+    paragraph2:
+      "Has internship experience as a web developer at LLDIKTI Region X Padang with a focus on the advanced development of SPPD (Official Travel Order) applications and also as a WordPress web developer in the service of lecturers in the Information Systems Department of UNAND in developing the Nagari Siguntur website, Koto XI Tarusan, Pesisir Selatan. During college, experienced as a GIS (Geographic Information System) Laboratory Assistant, assisting lecturers in teaching practicums in GIS courses."
+  },
+
+  id: {
+    title: "Tentang Saya",
+    skillsTitle: "Keahlian Teknis",
+    connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi!",
+    contactButton: "Hubungi Saya",
+    paragraph1:
+      "Lulusan baru jurusan Sistem Informasi Universitas Andalas dengan gelar Sarjana Komputer. Memiliki sertifikasi pelatihan dan kompetensi BNSP pada bidang Software Development dengan kualifikasi sebagai Junior Web Programmer. Memiliki minat besar pada bidang teknologi informasi khususnya Website Developer dan Design UI UX.",
+    paragraph2:
+      "Memiliki pengalaman magang sebagai web developer di LLDIKTI Wilayah X Padang dengan fokus pada pengembangan lanjutan aplikasi SPPD (Surat Perintah Perjalanan Dinas) dan juga sebagai WordPress web developer pada pengabdian dosen Departemen Sistem Informasi UNAND dalam mengembangkan website Nagari Siguntur Kecamatan Koto XI Tarusan Kabupaten Pesisir Selatan. Selama kuliah, berpengalaman sebagai Asisten Laboratorium SIG (Sistem Informasi Geografis) dalam membantu dosen mengajar praktikum pada mata kuliah SIG."
   }
+};
+
 
   const currentTranslations = translations[language]
 
