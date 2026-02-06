@@ -21,11 +21,11 @@ const Experience = ({ language }) => {
           period: "Jan 2026 - Now",
           location: "Padang, Indonesia",
           type: "Outsourcing (PT Putri Teratai)",
-          description: "Assigned to the Management System Unit to digitize business processes and develop integrated web applications[cite: 8, 9].",
+          description: "Assigned to the Management System Unit to digitize business processes and develop integrated web applications.",
           responsibilities: [
-            "Analyze user needs and design business process flows for digitalization [cite: 10]",
-            "Design user-friendly interfaces (UI/UX) using Figma before development [cite: 11]",
-            "Develop PHP-based web applications integrated with company data needs [cite: 12]"
+            "Analyze user needs and design business process flows for digitalization",
+            "Design user-friendly interfaces (UI/UX) using Figma before development",
+            "Develop PHP-based web applications integrated with company data needs"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "Figma", "Business Analysis"],
           companyLogo: "semenpadang.png",
@@ -38,11 +38,11 @@ const Experience = ({ language }) => {
           period: "Oct 2025 - Dec 2025",
           location: "Padang, Indonesia",
           type: "Kemnaker Internship",
-          description: "Developed low-code and web applications within the Management System Unit via PT Putri Teratai[cite: 14, 15].",
+          description: "Developed low-code and web applications within the Management System Unit via PT Putri Teratai.",
           responsibilities: [
-            "Developed applications using Microsoft Power Apps and PHP [cite: 16]",
-            "Processed and analyzed data using Microsoft Excel [cite: 17]",
-            "Collaborated with the team in IT solution implementation [cite: 18]"
+            "Developed applications using Microsoft Power Apps and PHP",
+            "Processed and analyzed data using Microsoft Excel",
+            "Collaborated with the team in IT solution implementation"
           ],
           technologies: ["Power Apps", "PHP", "Excel", "Web Development"],
           companyLogo: "semenpadang.png",
@@ -55,11 +55,11 @@ const Experience = ({ language }) => {
           period: "Jan 2024 - Feb 2024",
           location: "West Sumatra, Indonesia",
           type: "Internship",
-          description: "Developed a web application for the SPPD (Official Travel Order) management system[cite: 25, 27].",
+          description: "Developed a web application for the SPPD (Official Travel Order) management system.",
           responsibilities: [
-            "Designed and built the application interface layout [cite: 28]",
-            "Developed the system using PHP and Laravel framework [cite: 29]",
-            "Conducted application testing prior to deployment [cite: 30]"
+            "Designed and built the application interface layout",
+            "Developed the system using PHP and Laravel framework",
+            "Conducted application testing prior to deployment"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
           companyLogo: "lldikti.png",
@@ -72,11 +72,11 @@ const Experience = ({ language }) => {
           period: "Oct 2024 - Nov 2024",
           location: "Pesisir Selatan, West Sumatra, Indonesia",
           type: "Community Service",
-          description: "Developed the official website of Nagari Siguntur based on WordPress to support village administration[cite: 19, 21].",
+          description: "Developed the official website of Nagari Siguntur based on WordPress to support village administration.",
           responsibilities: [
-            "Designed and built website layout and page structure [cite: 22]",
-            "Implemented systems to support nagari administration and community engagement [cite: 23]",
-            "Conducted implementation and testing before deployment [cite: 24]"
+            "Designed and built website layout and page structure",
+            "Implemented systems to support nagari administration and community engagement",
+            "Conducted implementation and testing before deployment"
           ],
           technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
           companyLogo: "siguntur.png",
@@ -95,11 +95,11 @@ const Experience = ({ language }) => {
           period: "Jan 2026 - Sekarang",
           location: "Padang, Indonesia",
           type: "Full-time (Outsourcing)",
-          description: "Ditempatkan di Unit Sistem Manajemen melalui PT Putri Teratai untuk mendorong transformasi digital dan optimalisasi proses bisnis[cite: 8, 9].",
+          description: "Ditempatkan di Unit Sistem Manajemen melalui PT Putri Teratai untuk mendorong transformasi digital dan optimalisasi proses bisnis.",
           responsibilities: [
-            "Menganalisis kebutuhan pengguna dan merancang alur proses bisnis untuk didigitalisasi [cite: 10]",
-            "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan [cite: 11]",
-            "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan [cite: 12]"
+            "Menganalisis kebutuhan pengguna dan merancang alur proses bisnis untuk didigitalisasi",
+            "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan",
+            "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "Figma", "Analisis Bisnis"],
           companyLogo: "semenpadang.png",
@@ -112,11 +112,11 @@ const Experience = ({ language }) => {
           period: "Okt 2025 - Des 2025",
           location: "Padang, Indonesia",
           type: "Magang Kemnaker",
-          description: "Mengembangkan aplikasi low-code dan web pada Unit Sistem Manajemen PT Semen Padang[cite: 14, 15, 16].",
+          description: "Mengembangkan aplikasi low-code dan web pada Unit Sistem Manajemen PT Semen Padang.",
           responsibilities: [
-            "Mengembangkan aplikasi menggunakan Microsoft Power Apps dan PHP [cite: 16]",
-            "Mengolah dan menganalisis data menggunakan Microsoft Excel [cite: 17]",
-            "Berkolaborasi dengan tim dalam implementasi solusi teknologi informasi [cite: 18]"
+            "Mengembangkan aplikasi menggunakan Microsoft Power Apps dan PHP",
+            "Mengolah dan menganalisis data menggunakan Microsoft Excel",
+            "Berkolaborasi dengan tim dalam implementasi solusi teknologi informasi"
           ],
           technologies: ["PHP", "Power Apps", "Microsoft Excel"],
           companyLogo: "semenpadang.png",
@@ -129,11 +129,11 @@ const Experience = ({ language }) => {
           period: "Jan 2024 - Feb 2024",
           location: "Sumatera Barat, Indonesia",
           type: "Kerja Praktek",
-          description: "Mengembangkan aplikasi web sistem manajemen SPPD (Surat Perintah Perjalanan Dinas)[cite: 25, 27].",
+          description: "Mengembangkan aplikasi web sistem manajemen SPPD (Surat Perintah Perjalanan Dinas).",
           responsibilities: [
-            "Mendesain dan membangun rancangan tampilan aplikasi [cite: 28]",
-            "Menggunakan bahasa pemrograman PHP dan framework Laravel [cite: 29]",
-            "Melakukan pengujian/uji coba aplikasi sebelum digunakan [cite: 30]"
+            "Mendesain dan membangun rancangan tampilan aplikasi",
+            "Menggunakan bahasa pemrograman PHP dan framework Laravel",
+            "Melakukan pengujian/uji coba aplikasi sebelum digunakan"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
           companyLogo: "lldikti.png",
@@ -146,11 +146,11 @@ const Experience = ({ language }) => {
           period: "Okt 2024 - Nov 2024",
           location: "Pesisir Selatan, Sumatera Barat, Indonesia",
           type: "Pengabdian Dosen",
-          description: "Mengembangkan website resmi Nagari Siguntur berbasis WordPress untuk mendukung administrasi nagari[cite: 19, 21].",
+          description: "Mengembangkan website resmi Nagari Siguntur berbasis WordPress untuk mendukung administrasi nagari.",
           responsibilities: [
-            "Mendesain dan membangun tampilan serta struktur halaman website [cite: 22]",
-            "Menerapkan sistem untuk mendukung administrasi nagari dan keterlibatan masyarakat [cite: 23]",
-            "Melakukan implementasi dan uji coba website sebelum digunakan [cite: 24]"
+            "Mendesain dan membangun tampilan serta struktur halaman website",
+            "Menerapkan sistem untuk mendukung administrasi nagari dan keterlibatan masyarakat",
+            "Melakukan implementasi dan uji coba website sebelum digunakan"
           ],
           technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
           companyLogo: "siguntur.png",
