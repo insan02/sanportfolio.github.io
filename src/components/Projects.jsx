@@ -69,18 +69,17 @@ const Projects = ({ language }) => {
         },
         {
           id: 4,
-          title: "Rent Car Management System",
-          shortTitle: "Car Rental System",
-          category: "Portfolio Project",
-          description: "Comprehensive car rental application featuring dual interfaces for administrators and customers. This full-stack web application streamlines vehicle rental operations with advanced booking management and fleet administration capabilities.",
-          image: "ssrent.png",
-          screenshots: ["ssrent1.png", "ssrent2.png", "ssrent3.png"],
-          technologies: ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript"],
+          title: "SPPD (Official Travel Order) Web Application",
+          shortTitle: "SPPD System",
+          category: "Intern Project",
+          description: "Developed at LLDIKTI Region X to manage official travel orders using Laravel framework.",
+          image: "sslldikti1.png",
+          screenshots: ["sslldikti1.png", "sslldikti2.png"],
+          technologies: ["PHP", "Laravel", "MySQL", "UI/UX Design"],
           features: [
-            "Complete Fleet Management System",
-            "Real-time Booking & Availability check", 
-            "Admin Dashboard for approval workflows", 
-            "Transaction history & Invoice generation"
+            "Travel order management workflow",
+            "Responsive UI/UX design",
+            "System testing and implementation"
           ]
         },
         
@@ -143,21 +142,20 @@ const Projects = ({ language }) => {
           ]
         },
         {
-          id: 4,
-          title: "Sistem Manajemen Rental Mobil",
-          shortTitle: "Sistem Rental Mobil",
-          category: "Proyek Portfolio",
-          description: "Aplikasi rental mobil komprehensif dengan antarmuka ganda untuk admin dan pelanggan. Aplikasi ini merampingkan operasi rental dengan manajemen pemesanan lanjutan dan administrasi armada kendaraan.",
-          image: "ssrent.png",
-          screenshots: ["ssrent1.png", "ssrent2.png", "ssrent3.png"],
-          technologies: ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript"],
-          features: [
-            "Manajemen Armada Lengkap",
-            "Cek ketersediaan & Booking Real-time", 
-            "Dashboard Admin untuk persetujuan", 
-            "Riwayat transaksi & Cetak Invoice"
-          ]
-        }
+        id: 4,
+        title: "Aplikasi Web Surat Perintah Perjalanan Dinas (SPPD)",
+        shortTitle: "Aplikasi SPPD",
+        category: "Proyek Magang",
+        description: "Mengembangkan aplikasi berbasis web untuk manajemen surat perintah perjalanan dinas di LLDikti Wilayah X[cite: 25, 27].",
+        image: "sslldikti1.png",
+        screenshots: ["sslldikti1.png", "sslldikti2.png"],
+        technologies: ["PHP", "Laravel", "MySQL", "Desain UI/UX"],
+        features: [
+          "Mendesain dan membangun rancangan tampilan aplikasi [cite: 28]",
+          "Mengembangkan sistem menggunakan framework Laravel [cite: 29]",
+          "Melakukan pengujian aplikasi sebelum digunakan [cite: 30]"
+        ]
+      },
       ]
     }
   }

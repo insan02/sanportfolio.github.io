@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaPhp, FaLaravel, FaDatabase, FaJsSquare, FaMicrosoft } from "react-icons/fa";
+import { SiFigma } from "react-icons/si";
 
 const About = ({ language }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,9 +17,9 @@ const About = ({ language }) => {
     connectText: "Let's connect to discuss collaboration opportunities!",
     contactButton: "Get In Touch",
     paragraph1:
-      "Fresh graduate of Information Systems Department, Andalas University with bachelor's degree in computers. Has BNSP training and competency certification in Software Development with qualifications as a Junior Web Programmer. Has a great interest in the field of information technology, especially Website Developer and UI UX Design.",
+      "Fresh graduate of Information Systems from Andalas University with professional experience as a Full Stack Developer at PT Semen Padang. Certified BNSP Junior Web Programmer with expertise in Laravel, MySQL, and UI/UX design using Figma.",
     paragraph2:
-      "Has internship experience as a web developer at LLDIKTI Region X Padang with a focus on the advanced development of SPPD (Official Travel Order) applications and also as a WordPress web developer in the service of lecturers in the Information Systems Department of UNAND in developing the Nagari Siguntur website, Koto XI Tarusan, Pesisir Selatan. During college, experienced as a GIS (Geographic Information System) Laboratory Assistant, assisting lecturers in teaching practicums in GIS courses."
+      "Proven ability to transform business requirements into targeted digital solutions through business process analysis and user-friendly interface design. Experienced in developing web applications, integrating data, and utilizing low-code platforms like Microsoft Power Apps."
   },
 
   id: {
@@ -27,9 +28,9 @@ const About = ({ language }) => {
     connectText: "Mari terhubung untuk mendiskusikan peluang kolaborasi!",
     contactButton: "Hubungi Saya",
     paragraph1:
-      "Lulusan baru jurusan Sistem Informasi Universitas Andalas dengan gelar Sarjana Komputer. Memiliki sertifikasi pelatihan dan kompetensi BNSP pada bidang Software Development dengan kualifikasi sebagai Junior Web Programmer. Memiliki minat besar pada bidang teknologi informasi khususnya Website Developer dan Design UI UX.",
+      "Lulusan baru Sistem Informasi dari Universitas Andalas dengan pengalaman profesional sebagai Full Stack Developer di PT Semen Padang. Memiliki sertifikasi BNSP Junior Web Programmer serta keahlian dalam pengembangan aplikasi web berbasis PHP (Laravel), MySQL, dan desain UI/UX menggunakan Figma.",
     paragraph2:
-      "Memiliki pengalaman magang sebagai web developer di LLDIKTI Wilayah X Padang dengan fokus pada pengembangan lanjutan aplikasi SPPD (Surat Perintah Perjalanan Dinas) dan juga sebagai WordPress web developer pada pengabdian dosen Departemen Sistem Informasi UNAND dalam mengembangkan website Nagari Siguntur Kecamatan Koto XI Tarusan Kabupaten Pesisir Selatan. Selama kuliah, berpengalaman sebagai Asisten Laboratorium SIG (Sistem Informasi Geografis) dalam membantu dosen mengajar praktikum pada mata kuliah SIG."
+      "Terbukti mampu mentransformasi kebutuhan bisnis menjadi solusi digital yang tepat sasaran melalui analisis proses bisnis dan perancangan antarmuka yang user-friendly. Berpengalaman dalam mengembangkan aplikasi web terintegrasi data serta platform low-code seperti Microsoft Power Apps."
   }
 };
 
@@ -40,7 +41,7 @@ const About = ({ language }) => {
     { name: 'PHP', icon: <FaPhp />, color: '#777BB4' },
     { name: 'Laravel', icon: <FaLaravel />, color: '#FF2D20' },
     { name: 'MySQL', icon: <FaDatabase />, color: '#4479A1' },
-    { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
+    { name: 'Figma', icon: <SiFigma />, color: '#F24E1E' }, // Import SiFigma dari react-icons/si
     { name: 'Office', icon: <FaMicrosoft />, color: '#F25022' },
   ];
 

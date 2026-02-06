@@ -22,6 +22,42 @@ const Experience = ({ language }) => {
       experiences: [
         {
           id: 1,
+          position: "Full Stack Developer",
+          company: "PT Semen Padang",
+          duration: "Present",
+          period: "Jan 2026 - Now",
+          location: "Padang, Indonesia",
+          type: "Outsourcing (PT Putri Teratai)",
+          description: "Working in the Management System Unit to digitize business processes and develop integrated web applications.",
+          responsibilities: [
+            "Analyze user needs and design business process flows for digitalization",
+            "Design user-friendly interfaces (UI/UX) using Figma before development",
+            "Develop PHP-based web applications integrated with company data needs"
+          ],
+          technologies: ["PHP", "Laravel", "MySQL", "Figma", "Business Analysis"],
+          companyLogo: "semenpadang.png",
+          screenshots: [] 
+        },
+        {
+          id: 2,
+          position: "Programmer (Intern Kemnaker)",
+          company: "PT Semen Padang",
+          duration: "3 Months",
+          period: "Oct 2025 - Dec 2025",
+          location: "Padang, Indonesia",
+          type: "Kemnaker Internship",
+          description: "Developed low-code and web applications within the Management System Unit.",
+          responsibilities: [
+            "Developed low-code applications using Microsoft Power Apps and PHP",
+            "Processed and analyzed data using Microsoft Excel",
+            "Collaborated with the team in IT solution implementation"
+          ],
+          technologies: ["Power Apps", "PHP", "Excel", "Web Development"],
+          companyLogo: "semenpadang.png",
+          screenshots: []
+        },
+        {
+          id: 3,
           position: "Website Developer (Intern)",
           company: "LLDIKTI X Padang",
           duration: "1 Month",
@@ -45,7 +81,7 @@ const Experience = ({ language }) => {
           companyLogo: "lldikti.png",
         },
         {
-          id: 2,
+          id: 4,
           position: "WordPress Developer (Lecturer Dedication)",
           company: "Nagari Siguntur Pesisir Selatan",
           duration: "2 Months",
@@ -77,7 +113,43 @@ const Experience = ({ language }) => {
       view: "Lihat",
       experiences: [
         {
-          id: 1,
+        id: 1,
+        position: "Full Stack Developer",
+        company: "PT Semen Padang",
+        duration: "Sekarang",
+        period: "Jan 2026 - Sekarang",
+        location: "Padang, Indonesia",
+        type: "Full-time (Outsourcing)",
+        description: "Ditempatkan di Unit Sistem Manajemen melalui PT Putri Teratai untuk mendorong transformasi digital dan optimalisasi proses bisnis.",
+        responsibilities: [
+          "Menganalisis kebutuhan pengguna dan merancang alur proses bisnis untuk didigitalisasi",
+          "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan ",
+          "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan"
+        ],
+        technologies: ["PHP", "Laravel", "MySQL", "Figma", "Analisis Bisnis"],
+        companyLogo: "semenpadang.png",
+        screenshots: []
+      },
+      {
+        id: 2,
+        position: "Programmer (Magang Kemnaker)",
+        company: "PT Semen Padang",
+        duration: "3 Bulan",
+        period: "Okt 2025 - Des 2025",
+        location: "Padang, Indonesia",
+        type: "Magang",
+        description: "Mengikuti program Magang Kemnaker di Unit Sistem Manajemen PT Semen Padang.",
+        responsibilities: [
+          "Mempelajari dan mengembangkan aplikasi low-code menggunakan Microsoft Power Apps dan PHP",
+          "Mengolah dan menganalisis data menggunakan Microsoft Excel",
+          "Berkolaborasi dengan tim dalam implementasi solusi teknologi informasi"
+        ],
+        technologies: ["PHP", "Power Apps", "Microsoft Excel"],
+        companyLogo: "semenpadang.png",
+        screenshots: []
+      },
+        {
+          id: 3,
           position: "Pengembang Website (Magang)",
           company: "LLDIKTI X Padang",
           duration: "1 Bulan",
@@ -101,7 +173,7 @@ const Experience = ({ language }) => {
           companyLogo: "lldikti.png",
         },
         {
-          id: 2,
+          id: 4,
           position: "WordPress Developer (Pengabdian Dosen)",
           company: "Nagari Siguntur Pesisir Selatan",
           duration: "2 Bulan",
