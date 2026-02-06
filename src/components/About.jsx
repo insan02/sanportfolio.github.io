@@ -19,7 +19,7 @@ const About = ({ language }) => {
     paragraph1:
       "Fresh graduate of Information Systems from Andalas University with professional experience as a Full Stack Developer at PT Semen Padang. Certified BNSP Junior Web Programmer with expertise in Laravel, MySQL, and UI/UX design using Figma.",
     paragraph2:
-      "Proven ability to transform business requirements into targeted digital solutions through business process analysis and user-friendly interface design. Experienced in developing web applications, integrating data, and utilizing low-code platforms like Microsoft Power Apps."
+      "Proven ability to transform business requirements into targeted digital solutions through business process analysis and user-friendly interface design. Experienced in developing web applications, integrating data."
   },
 
   id: {
@@ -30,7 +30,7 @@ const About = ({ language }) => {
     paragraph1:
       "Lulusan baru Sistem Informasi dari Universitas Andalas dengan pengalaman profesional sebagai Full Stack Developer di PT Semen Padang. Memiliki sertifikasi BNSP Junior Web Programmer serta keahlian dalam pengembangan aplikasi web berbasis PHP (Laravel), MySQL, dan desain UI/UX menggunakan Figma.",
     paragraph2:
-      "Terbukti mampu mentransformasi kebutuhan bisnis menjadi solusi digital yang tepat sasaran melalui analisis proses bisnis dan perancangan antarmuka yang user-friendly. Berpengalaman dalam mengembangkan aplikasi web terintegrasi data serta platform low-code seperti Microsoft Power Apps."
+      "Terbukti mampu mentransformasi kebutuhan bisnis menjadi solusi digital yang tepat sasaran melalui analisis proses bisnis dan perancangan antarmuka yang user-friendly. Berpengalaman dalam mengembangkan aplikasi web terintegrasi data."
   }
 };
 

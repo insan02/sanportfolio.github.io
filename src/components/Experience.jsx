@@ -35,8 +35,7 @@ const Experience = ({ language }) => {
             "Develop PHP-based web applications integrated with company data needs"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "Figma", "Business Analysis"],
-          companyLogo: "semenpadang.png",
-          screenshots: [] 
+          companyLogo: "semenpadang.png"
         },
         {
           id: 2,
@@ -53,8 +52,7 @@ const Experience = ({ language }) => {
             "Collaborated with the team in IT solution implementation"
           ],
           technologies: ["Power Apps", "PHP", "Excel", "Web Development"],
-          companyLogo: "semenpadang.png",
-          screenshots: []
+          companyLogo: "semenpadang.png"
         },
         {
           id: 3,
@@ -72,12 +70,6 @@ const Experience = ({ language }) => {
             "Collaborated with team members in system requirements analysis"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
-          screenshots: [
-            "sslldikti1.png",
-            "sslldikti2.png",
-            "sslldikti3.png",
-            "sslldikti4.png"
-          ],
           companyLogo: "lldikti.png",
         },
         {
@@ -96,10 +88,6 @@ const Experience = ({ language }) => {
             "Conducted implementation and testing of the website before deployment"
           ],
           technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
-          screenshots: [
-            "sssiguntur1.png",
-            "sssiguntur2.png"
-          ],
           companyLogo: "siguntur.png",
         }
       ]
@@ -128,7 +116,6 @@ const Experience = ({ language }) => {
         ],
         technologies: ["PHP", "Laravel", "MySQL", "Figma", "Analisis Bisnis"],
         companyLogo: "semenpadang.png",
-        screenshots: []
       },
       {
         id: 2,
@@ -146,11 +133,10 @@ const Experience = ({ language }) => {
         ],
         technologies: ["PHP", "Power Apps", "Microsoft Excel"],
         companyLogo: "semenpadang.png",
-        screenshots: []
       },
         {
           id: 3,
-          position: "Pengembang Website (Magang)",
+          position: "Full Stack Developer (Magang)",
           company: "LLDIKTI X Padang",
           duration: "1 Bulan",
           period: "2024",
@@ -164,12 +150,6 @@ const Experience = ({ language }) => {
             "Berkolaborasi dengan anggota tim dalam analisis kebutuhan sistem"
           ],
           technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
-          screenshots: [
-            "sslldikti1.png",
-            "sslldikti2.png",
-            "sslldikti3.png",
-            "sslldikti4.png"
-          ],
           companyLogo: "lldikti.png",
         },
         {
@@ -188,10 +168,6 @@ const Experience = ({ language }) => {
             "Melakukan implementasi dan uji coba website sebelum digunakan"
           ],
           technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
-          screenshots: [
-            "sssiguntur1.png",
-            "sssiguntur2.png"
-          ],
           companyLogo: "siguntur.png",
         }
       ]
