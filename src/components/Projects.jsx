@@ -142,20 +142,20 @@ const Projects = ({ language }) => {
           ]
         },
         {
-        id: 4,
-        title: "Aplikasi Web Surat Perintah Perjalanan Dinas (SPPD)",
-        shortTitle: "Aplikasi SPPD",
-        category: "Proyek Magang",
-        description: "Mengembangkan aplikasi berbasis web untuk manajemen surat perintah perjalanan dinas di LLDikti Wilayah X[cite: 25, 27].",
-        image: "sslldikti1.png",
-        screenshots: ["sslldikti1.png", "sslldikti2.png"],
-        technologies: ["PHP", "Laravel", "MySQL", "Desain UI/UX"],
-        features: [
-          "Mendesain dan membangun rancangan tampilan aplikasi [cite: 28]",
-          "Mengembangkan sistem menggunakan framework Laravel [cite: 29]",
-          "Melakukan pengujian aplikasi sebelum digunakan [cite: 30]"
-        ]
-      },
+          id: 4,
+          title: "Aplikasi Web Surat Perintah Perjalanan Dinas (SPPD)",
+          shortTitle: "Aplikasi SPPD",
+          category: "Proyek Magang",
+          description: "Mengembangkan aplikasi berbasis web untuk manajemen surat perintah perjalanan dinas di LLDikti Wilayah X[cite: 25, 27].",
+          image: "sslldikti1.png",
+          screenshots: ["sslldikti1.png", "sslldikti2.png"],
+          technologies: ["PHP", "Laravel", "MySQL", "Desain UI/UX"],
+          features: [
+            "Mendesain dan membangun rancangan tampilan aplikasi [cite: 28]",
+            "Mengembangkan sistem menggunakan framework Laravel [cite: 29]",
+            "Melakukan pengujian aplikasi sebelum digunakan [cite: 30]"
+          ]
+        },
       ]
     }
   }
