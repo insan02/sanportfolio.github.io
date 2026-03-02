@@ -202,37 +202,31 @@ const Education = ({ language }) => {
 
           {/* Right Column: Photo */}
           <div className={`lg:col-span-5 flex justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-             <div className="relative w-full max-w-md group">
-                {/* Frame Glow Effect untuk Foto */}
+             <div className="relative w-full max-w-md group mt-8 lg:mt-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-cyan-500 to-purple-600 rounded-2xl opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-700 animate-pulse"></div>
                 
-                {/* Photo Container - Tetap Gelap agar menyatu dengan background tapi punya border tegas */}
-                <div className="relative h-[500px] rounded-2xl overflow-hidden border-2 border-white/10 bg-zinc-900/80 shadow-2xl backdrop-blur-sm">
+                {/* === PERBAIKAN: h-[350px] sm:h-[400px] md:h-[500px] === */}
+                <div className="relative h-[350px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden border-2 border-white/10 bg-zinc-900/80 shadow-2xl backdrop-blur-sm">
                    <img 
                       src="me6.jpg" 
                       alt="Graduation" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100 object-top"
                    />
                    
-                   {/* Overlay Info */}
-                   <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent flex flex-col justify-end p-8">
+                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 md:p-8 pt-20">
                       <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                         <div className="flex items-center gap-2 text-emerald-400 font-mono text-sm mb-2">
+                         <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs md:text-sm mb-1">
                             <FaGraduationCap />
                             <span className="tracking-wider">CLASS OF 2025</span>
                          </div>
-                         <p className="text-white font-bold text-2xl leading-tight">Universitas Andalas</p>
-                         <p className="text-gray-400 text-sm mt-1">Padang, Indonesia</p>
+                         <p className="text-white font-bold text-xl md:text-2xl leading-tight">Universitas Andalas</p>
                       </div>
                    </div>
                 </div>
 
-                {/* Floating Badges (Dark Mode style to match photo frame) */}
-                <div className="absolute -top-6 -right-6 bg-zinc-900 border border-emerald-500/50 p-4 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)] animate-float">
-                   <FaTrophy className="text-yellow-400 text-2xl" />
-                </div>
-                <div className="absolute top-1/2 -left-8 bg-zinc-900 border border-cyan-500/50 p-4 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.3)] animate-float-delayed">
-                   <FaStar className="text-emerald-400 text-2xl" />
+                {/* Floating Badges */}
+                <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-zinc-900 border border-emerald-500/50 p-3 md:p-4 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)] animate-float">
+                   <FaTrophy className="text-yellow-400 text-xl md:text-2xl" />
                 </div>
              </div>
           </div>

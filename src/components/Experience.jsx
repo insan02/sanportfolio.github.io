@@ -20,14 +20,13 @@ const Experience = ({ language }) => {
           duration: "Present",
           period: "Jan 2026 - Now",
           location: "Padang, Indonesia",
-          type: "Outsourcing (PT Putri Teratai)",
-          description: "Assigned to the Management System Unit to digitize business processes and develop integrated web applications.",
+          type: "Contract",
           responsibilities: [
-            "Analyze user needs and design business process flows for digitalization",
-            "Design user-friendly interfaces (UI/UX) using Figma before development",
-            "Develop PHP-based web applications integrated with company data needs"
+            "Analyzing user needs, designing business process flows for digitization, and ensuring that the solutions developed are on target.",
+            "Designing user-friendly interfaces (UI/UX) using Figma prior to the development stage.",
+            "Designing and developing a PHP-based web application integrated with the company's data requirements."
           ],
-          technologies: ["PHP", "Laravel", "MySQL", "Figma", "Business Analysis"],
+          technologies: ["Figma", "UI UX","PHP", "Laravel", "MySQL", "Business Analysis"],
           companyLogo: "semenpadang.png",
         },
         {
@@ -38,48 +37,48 @@ const Experience = ({ language }) => {
           period: "Oct 2025 - Dec 2025",
           location: "Padang, Indonesia",
           type: "Kemnaker Internship",
-          description: "Developed low-code and web applications within the Management System Unit via PT Putri Teratai.",
           responsibilities: [
-            "Developed applications using Microsoft Power Apps and PHP",
-            "Processed and analyzed data using Microsoft Excel",
-            "Collaborated with the team in IT solution implementation"
+            "Analyzing user requirements and designing business process flows for digitization, ensuring that the solutions developed are on target.",
+            "Designing user-friendly interfaces (UI/UX) using Figma prior to the development stage.",
+            "Designing and developing PHP-based web applications integrated with company data requirements.",
+            "Processing and analyzing data using Microsoft Excel."
           ],
-          technologies: ["Power Apps", "PHP", "Excel", "Web Development"],
+          technologies: ["Figma", "UI UX", "PHP", "Laravel", "MySQL", "Excel"],
           companyLogo: "semenpadang.png",
         },
         {
           id: 3,
+          position: "WordPress Developer (Lectrurer Dedication of Information Systems Department UNAND)",
+          company: "Nagari Siguntur",
+          duration: "2 Months",
+          period: "Oct 2024 - Nov 2024",
+          location: "Pesisir Selatan, West Sumatra, Indonesia",
+          type: "Lecturer Dedication",
+          responsibilities: [
+            "Developed the official website of Nagari Siguntur based on WordPress",
+            "Designed and built website layout and page structure",
+            "Implemented systems to support nagari administration and community engagement",
+            "Conducted implementation and testing of the website before deployment"
+          ],
+          technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
+          companyLogo: "siguntur.png",
+        },
+        {
+          id: 4,
           position: "Full Stack Developer (Intern)",
           company: "LLDIKTI X Padang",
           duration: "1 Month",
           period: "Jan 2024 - Feb 2024",
           location: "West Sumatra, Indonesia",
           type: "Internship",
-          description: "Developed a web application for the SPPD (Official Travel Order) management system.",
           responsibilities: [
-            "Designed and built the application interface layout",
-            "Developed the system using PHP and Laravel framework",
-            "Conducted application testing prior to deployment"
+            "Developed SPPD (Official Travel Order) web application",
+            "Designed and built application display layouts",
+            "Used PHP programming language and Laravel framework",
+            "Performed application testing"
           ],
-          technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
+          technologies: ["Figma", "UI UX","PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
           companyLogo: "lldikti.png",
-        },
-        {
-          id: 4,
-          position: "WordPress Developer",
-          company: "Nagari Siguntur",
-          duration: "2 Months",
-          period: "Oct 2024 - Nov 2024",
-          location: "Pesisir Selatan, West Sumatra, Indonesia",
-          type: "Community Service",
-          description: "Developed the official website of Nagari Siguntur based on WordPress to support village administration.",
-          responsibilities: [
-            "Designed and built website layout and page structure",
-            "Implemented systems to support nagari administration and community engagement",
-            "Conducted implementation and testing before deployment"
-          ],
-          technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
-          companyLogo: "siguntur.png",
         }
       ]
     },
@@ -94,14 +93,13 @@ const Experience = ({ language }) => {
           duration: "Sekarang",
           period: "Jan 2026 - Sekarang",
           location: "Padang, Indonesia",
-          type: "Full-time (Outsourcing)",
-          description: "Ditempatkan di Unit Sistem Manajemen melalui PT Putri Teratai untuk mendorong transformasi digital dan optimalisasi proses bisnis.",
+          type: "Kontrak",
           responsibilities: [
-            "Menganalisis kebutuhan pengguna dan merancang alur proses bisnis untuk didigitalisasi",
-            "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan",
-            "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan"
+            "Menganalisis kebutuhan pengguna, merancang alur proses bisnis untuk didigitalisasi, dan memastikan solusi yang dibangun tepat sasaran.",
+            "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan.",
+            "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan."
           ],
-          technologies: ["PHP", "Laravel", "MySQL", "Figma", "Analisis Bisnis"],
+          technologies: ["Figma", "UI UX", "PHP", "Laravel", "MySQL", "Figma", "Analisis Bisnis"],
           companyLogo: "semenpadang.png",
         },
         {
@@ -112,48 +110,49 @@ const Experience = ({ language }) => {
           period: "Okt 2025 - Des 2025",
           location: "Padang, Indonesia",
           type: "Magang Kemnaker",
-          description: "Mengembangkan aplikasi low-code dan web pada Unit Sistem Manajemen PT Semen Padang.",
           responsibilities: [
-            "Mengembangkan aplikasi menggunakan Microsoft Power Apps dan PHP",
-            "Mengolah dan menganalisis data menggunakan Microsoft Excel",
-            "Berkolaborasi dengan tim dalam implementasi solusi teknologi informasi"
+            "Menganalisis kebutuhan pengguna (user requirements) dan merancang alur proses bisnis untuk didigitalisasi, memastikan solusi yang dibangun tepat sasaran.",
+            "Mendesain antarmuka (UI/UX) yang user-friendly menggunakan Figma sebelum tahap pengembangan.",
+            "Merancang dan mengembangkan aplikasi web berbasis PHP yang terintegrasi dengan kebutuhan data perusahaan.",
+            "Melakukan pengolahan dan analisis data menggunakan Microsoft Excel."
           ],
-          technologies: ["PHP", "Power Apps", "Microsoft Excel"],
+          technologies: ["Figma", "UI UX", "PHP", "Laravel", "MySQL", "Excel"],
           companyLogo: "semenpadang.png",
         },
         {
           id: 3,
-          position: "Full Stack Developer (Magang)",
-          company: "LLDIKTI X Padang",
-          duration: "1 Bulan",
-          period: "Jan 2024 - Feb 2024",
-          location: "Sumatera Barat, Indonesia",
-          type: "Kerja Praktek",
-          description: "Mengembangkan aplikasi web sistem manajemen SPPD (Surat Perintah Perjalanan Dinas).",
-          responsibilities: [
-            "Mendesain dan membangun rancangan tampilan aplikasi",
-            "Menggunakan bahasa pemrograman PHP dan framework Laravel",
-            "Melakukan pengujian/uji coba aplikasi sebelum digunakan"
-          ],
-          technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
-          companyLogo: "lldikti.png",
-        },
-        {
-          id: 4,
-          position: "WordPress Developer",
+          position: "WordPress Developer (Pengabdian Dosen)",
           company: "Nagari Siguntur",
           duration: "2 Bulan",
           period: "Okt 2024 - Nov 2024",
           location: "Pesisir Selatan, Sumatera Barat, Indonesia",
           type: "Pengabdian Dosen",
-          description: "Mengembangkan website resmi Nagari Siguntur berbasis WordPress untuk mendukung administrasi nagari.",
           responsibilities: [
+            "Mengembangkan website resmi Nagari Siguntur berbasis WordPress",
             "Mendesain dan membangun tampilan serta struktur halaman website",
             "Menerapkan sistem untuk mendukung administrasi nagari dan keterlibatan masyarakat",
             "Melakukan implementasi dan uji coba website sebelum digunakan"
           ],
           technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
           companyLogo: "siguntur.png",
+        },
+        {
+          id: 4,
+          position: "Full Stack Developer (Magang)",
+          company: "LLDIKTI X Padang",
+          duration: "1 Bulan",
+          period: "Jan 2024 - Feb 2024",
+          location: "Sumatera Barat, Indonesia",
+          type: "Magang",
+          description: "Mengembangkan aplikasi web sistem manajemen SPPD (Surat Perintah Perjalanan Dinas).",
+          responsibilities: [
+            "Mengembangkan aplikasi web SPPD (Surat Perintah Perjalanan Dinas) ",
+            "Mendesain dan membangun rancangan tampilan aplikasi",
+            "Menggunakan bahasa pemrograman PHP dan framework laravel",
+            "Melakukan pengujian/uji coba aplikasi sebelum digunakan"
+          ],
+          technologies: ["Figma", "UI UX","PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
+          companyLogo: "lldikti.png",
         }
       ]
     }
