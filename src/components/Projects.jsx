@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = ({ language }) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(null)
-  const [hoveredProject, setHoveredProject] = useState(null)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100)
-    return () => clearTimeout(timer)
-  }, [])
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const translations = {
     en: {
@@ -17,7 +11,7 @@ const Projects = ({ language }) => {
       technologiesUsed: "Tech Stack",
       screenshots: "Project Gallery",
       viewDetails: "View Details",
-      view: "View",
+      view: "View Project",
       projects: [
         {
           id: 1,
@@ -81,8 +75,7 @@ const Projects = ({ language }) => {
             "Responsive UI/UX design",
             "System testing and implementation"
           ]
-        },
-        
+        }
       ]
     },
     id: {
@@ -91,7 +84,7 @@ const Projects = ({ language }) => {
       technologiesUsed: "Teknologi",
       screenshots: "Galeri Proyek",
       viewDetails: "Lihat Detail",
-      view: "Lihat",
+      view: "Lihat Proyek",
       projects: [
         {
           id: 1,
@@ -158,104 +151,120 @@ const Projects = ({ language }) => {
         },
       ]
     }
-  }
+  };
 
-  const currentTranslations = translations[language]
-  const projects = currentTranslations.projects
+  const currentTranslations = translations[language];
+  const projects = currentTranslations.projects;
 
-  const openModal = (project) => setSelectedProject(project)
-  const closeModal = () => setSelectedProject(null)
+  const openModal = (project) => {
+    setSelectedProject(project);
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closeModal = () => {
+    setSelectedProject(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60, damping: 12 } }
+  };
 
   return (
     <>
-      {/* 1. SECTION BACKGROUND: HITAM PEKAT */}
-      <section id="project" className="py-24 bg-zinc-950 relative overflow-hidden">
+      <section id="project" className="pt-32 pb-32 bg-[#09090b] relative overflow-hidden">
         
-        {/* Background Accents (Gradasi Halus di belakang Hitam) */}
-        {/* === BACKGROUND ACCENTS === */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Strong Gradient Base Layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 via-zinc-950 to-cyan-900/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/25 via-transparent to-emerald-900/25"></div>
-        <div className="absolute inset-0 bg-gradient-to-bl from-teal-900/20 via-transparent to-purple-900/15"></div>
+        {/* OMBAK ATAS HALUS (Menghubungkan Experience ke Projects) */}
+        <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#f8fafc" d="M0,96L80,112C160,128,320,160,480,160C640,160,800,128,960,112C1120,96,1280,96,1360,96L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+          </svg>
+        </div>
         
-        {/* Large Animated Gradient Orbs - More Visible */}
-        <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-gradient-to-br from-emerald-500/40 via-teal-500/30 to-cyan-500/20 rounded-full blur-[130px] animate-pulse"></div>
-        <div className="absolute top-[20%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-cyan-500/35 via-blue-500/25 to-emerald-500/15 rounded-full blur-[130px] animate-pulse delay-700"></div>
-        <div className="absolute -bottom-[10%] right-[20%] w-[600px] h-[600px] bg-gradient-to-tl from-emerald-400/30 via-teal-500/25 to-cyan-400/20 rounded-full blur-[110px] animate-pulse delay-1000"></div>
-        <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 via-pink-500/15 to-emerald-500/10 rounded-full blur-[110px] animate-pulse delay-500"></div>
-        <div className="absolute bottom-[30%] right-[40%] w-[450px] h-[450px] bg-gradient-to-tl from-teal-500/25 via-cyan-500/20 to-transparent rounded-full blur-[100px] animate-pulse delay-300"></div>
-        
-        {/* Radial Gradient Overlays */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.15),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(6,182,212,0.12),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(20,184,166,0.1),transparent_50%)]"></div>
-        
-        {/* Noise Texture */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-25 mix-blend-soft-light"></div>
-      </div>
-
-        <div className="container mx-auto px-6 relative z-10">
+        {/* Background Grid Interaktif & Glow */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#09090b]"></div>
+          <div 
+            className="absolute inset-0 opacity-40" 
+            style={{ 
+              backgroundImage: 'linear-gradient(#27272a 1px, transparent 1px), linear-gradient(90deg, #27272a 1px, transparent 1px)', 
+              backgroundSize: '50px 50px' 
+            }}
+          ></div>
           
-          {/* Header Section (Teks Putih di atas Hitam) */}
-          <div className={`flex flex-col items-center md:items-start mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                {currentTranslations.title}<span className="text-emerald-500">.</span>
-              </h2>
-              <div className="h-1 w-20 bg-emerald-500 rounded-full"></div>
-            </div>
-          </div>
+          <motion.div animate={{ x: [-30, 30, -30], y: [-30, 30, -30] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[-10%] left-[15%] w-[400px] h-[400px] bg-emerald-500/30 rounded-full blur-[100px]" />
+          <motion.div animate={{ x: [30, -30, 30], y: [30, -30, 30] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-cyan-500/25 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10 mt-10">
+          
+          {/* Header Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center md:items-start mb-16 text-center md:text-left"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+              {currentTranslations.title}<span className="text-emerald-500">.</span>
+            </h2>
+            <div className="h-1.5 w-24 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
+          </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div 
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {projects.map((project) => (
+              <motion.div 
+                variants={cardVariants}
                 key={project.id} 
-                // 2. KARTU PROYEK: PUTIH (bg-white) 
-                // Memberikan kontras tinggi terhadap section hitam
-                className={`group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 transform hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
+                className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all duration-500 border border-zinc-200"
               >
-                
                 {/* Image Container */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-60 overflow-hidden bg-zinc-100">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Overlay Gradasi pada gambar */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
                   
-                  {/* Category Badge (Background Putih/Terang) */}
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-white/95 backdrop-blur-md text-emerald-600 border border-emerald-100 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/95 backdrop-blur-md text-emerald-700 border border-emerald-100 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider shadow-sm">
                       {project.category}
                     </span>
                   </div>
 
-                  {/* Overlay Actions */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[2px]">
                      <button 
                         onClick={() => openModal(project)}
-                        className="bg-emerald-500 text-white font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-white hover:text-emerald-600 shadow-xl"
+                        className="bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-all duration-300 hover:bg-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.5)] flex items-center gap-2"
                      >
                         {currentTranslations.view}
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                      </button>
                   </div>
                 </div>
                 
-                {/* Card Content (Teks Gelap di atas Kartu Putih) */}
-                <div className="p-6 flex flex-col flex-grow">
+                {/* Card Content */}
+                <div className="p-6 md:p-8 flex flex-col flex-grow relative">
                   <div className="mb-4">
-                    {/* Judul Gelap */}
-                    <h3 className="text-xl font-bold text-zinc-900 group-hover:text-emerald-600 transition-colors duration-300 line-clamp-1">
+                    <h3 className="text-xl md:text-2xl font-extrabold text-zinc-900 group-hover:text-emerald-600 transition-colors duration-300 line-clamp-1">
                       {project.shortTitle}
                     </h3>
-                    <p className="text-sm text-zinc-500 mt-1 line-clamp-1">
+                    <p className="text-xs md:text-sm font-semibold text-emerald-600/80 mt-1 line-clamp-1">
                        {project.title}
                     </p>
                   </div>
@@ -264,150 +273,173 @@ const Projects = ({ language }) => {
                     {project.description}
                   </p>
                   
-                  {/* Tech Stack Badges (Light Theme) */}
                   <div className="mt-auto">
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.slice(0, 3).map((tech, idx) => (
-                        <span key={idx} className="text-xs font-medium text-zinc-600 bg-zinc-100 border border-zinc-200 px-2 py-1 rounded">
+                        <span key={idx} className="text-[11px] md:text-xs font-bold text-zinc-600 bg-zinc-100 border border-zinc-200 px-2.5 py-1 rounded-md">
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="text-xs font-medium text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-1 rounded">
+                        <span className="text-[11px] md:text-xs font-bold text-zinc-500 bg-zinc-50 border border-zinc-200 px-2.5 py-1 rounded-md">
                           +{project.technologies.length - 3}
                         </span>
                       )}
                     </div>
 
-                    {/* Button (Outline style untuk light card) */}
                     <button
                       onClick={() => openModal(project)}
-                      className="w-full py-3 rounded-xl border border-zinc-200 text-zinc-700 font-semibold hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                      className="w-full py-3 rounded-xl border-2 border-zinc-100 text-zinc-700 font-bold hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                     >
                       {currentTranslations.viewDetails}
                       <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+
+        {/* OMBAK BAWAH HALUS (Menghubungkan Projects ke Certificate) */}
+        <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+          <svg className="relative block w-full h-[70px] md:h-[130px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#f8fafc" d="M0,160L80,170.7C160,181,320,203,480,192C640,181,800,139,960,128C1120,117,1280,139,1360,149.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+          </svg>
         </div>
       </section>
 
-      {/* Dark Mode Modal (Tetap Gelap agar fokus ke konten) */}
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-zinc-900 border border-white/10 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto animate-scale-in shadow-2xl relative">
-            
-            {/* Sticky Header */}
-            <div className="sticky top-0 bg-zinc-900/95 backdrop-blur-md border-b border-white/10 p-6 flex justify-between items-start z-20">
-              <div className="pr-8">
-                <span className="inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-                  {selectedProject.category}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                  {selectedProject.title}
-                </h3>
-              </div>
-              <button
-                onClick={closeModal}
-                className="p-2 bg-zinc-800 text-gray-400 hover:text-white hover:bg-red-500/20 hover:text-red-400 rounded-full transition-all duration-200 flex-shrink-0"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="p-6 md:p-8">
-              <div className="grid lg:grid-cols-3 gap-8">
-                 
-                 {/* Left: Description & Tech */}
-                 <div className="lg:col-span-2 space-y-8">
-                    <div>
-                       <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                          <span className="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
-                          Overview
-                       </h4>
-                       <p className="text-gray-300 leading-relaxed text-lg">
-                          {selectedProject.description}
-                       </p>
-                    </div>
-
-                    <div>
-                       <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                          <span className="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
-                          {currentTranslations.keyFeatures}
-                       </h4>
-                       <div className="grid sm:grid-cols-2 gap-3">
-                          {selectedProject.features.map((feature, index) => (
-                             <div key={index} className="flex items-start gap-3 bg-zinc-800/50 p-3 rounded-lg border border-white/5">
-                                <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                <span className="text-gray-300 text-sm">{feature}</span>
-                             </div>
-                          ))}
-                       </div>
-                    </div>
-                 </div>
-
-                 {/* Right: Sidebar Info */}
-                 <div className="space-y-6">
-                    <div className="bg-zinc-800/50 rounded-xl p-5 border border-white/5">
-                       <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-                          <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                          {currentTranslations.technologiesUsed}
-                       </h4>
-                       <div className="flex flex-wrap gap-2">
-                          {selectedProject.technologies.map((tech, index) => (
-                             <span key={index} className="bg-zinc-900 text-gray-300 px-3 py-1.5 rounded-lg text-sm border border-white/10">
-                                {tech}
-                             </span>
-                          ))}
-                       </div>
-                    </div>
-                 </div>
+      {/* MODAL: LIGHT THEME POP-OUT */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-zinc-950/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-6"
+            onClick={closeModal}
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white border border-zinc-200 rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative custom-scrollbar-light"
+            >
+              
+              {/* Sticky Header Modal Terang */}
+              <div className="sticky top-0 bg-white/90 backdrop-blur-xl border-b border-zinc-100 p-6 md:p-8 flex justify-between items-start z-20">
+                <div className="pr-8">
+                  <span className="inline-block bg-emerald-50 text-emerald-600 border border-emerald-200 px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider mb-3">
+                    {selectedProject.category}
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-zinc-900 leading-tight">
+                    {selectedProject.title}
+                  </h3>
+                </div>
+                <button
+                  onClick={closeModal}
+                  className="p-2.5 bg-zinc-100 text-zinc-500 hover:bg-red-50 hover:text-red-500 rounded-full transition-all duration-200 flex-shrink-0"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
 
-              {/* Screenshots Gallery */}
-              <div className="mt-12 pt-8 border-t border-white/10">
-                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  <span className="text-2xl">📸</span>
-                  {currentTranslations.screenshots}
-                </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {selectedProject.screenshots.map((screenshot, index) => (
-                    <div key={index} className="group relative rounded-xl overflow-hidden border border-white/10 bg-zinc-800">
-                      <img
-                        src={screenshot}
-                        alt={`Screenshot ${index + 1}`}
-                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                         <span className="text-white bg-black/50 backdrop-blur px-3 py-1 rounded-full text-sm border border-white/20">
-                            View Fullscreen
-                         </span>
+              <div className="p-6 md:p-8">
+                <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
+                   
+                   <div className="lg:col-span-2 space-y-8">
+                      <div>
+                         <h4 className="text-xl font-bold text-zinc-900 mb-4 flex items-center gap-3">
+                            <span className="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
+                            Overview
+                         </h4>
+                         <p className="text-zinc-600 leading-relaxed text-base md:text-lg">
+                            {selectedProject.description}
+                         </p>
                       </div>
-                    </div>
-                  ))}
+
+                      <div>
+                         <h4 className="text-xl font-bold text-zinc-900 mb-4 flex items-center gap-3">
+                            <span className="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
+                            {currentTranslations.keyFeatures}
+                         </h4>
+                         <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
+                            {selectedProject.features.map((feature, index) => (
+                               <div key={index} className="flex items-start gap-3 bg-zinc-50 p-4 rounded-xl border border-zinc-200 hover:border-emerald-300 transition-colors">
+                                  <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                  <span className="text-zinc-700 text-sm md:text-base font-medium">{feature}</span>
+                               </div>
+                            ))}
+                         </div>
+                      </div>
+                   </div>
+
+                   <div className="space-y-6">
+                      <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
+                         <h4 className="text-zinc-900 font-bold mb-4 flex items-center gap-2 text-lg">
+                            <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                            {currentTranslations.technologiesUsed}
+                         </h4>
+                         <div className="flex flex-wrap gap-2">
+                            {selectedProject.technologies.map((tech, index) => (
+                               <span key={index} className="bg-white text-zinc-700 px-3 py-1.5 rounded-lg text-sm font-bold border border-zinc-200 shadow-sm">
+                                  {tech}
+                               </span>
+                            ))}
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                <div className="mt-12 pt-8 border-t border-zinc-200">
+                  <h4 className="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+                    <span className="text-2xl">📸</span>
+                    {currentTranslations.screenshots}
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {selectedProject.screenshots.map((screenshot, index) => (
+                      <div key={index} className="group relative rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-50 shadow-sm">
+                        <img
+                          src={screenshot}
+                          alt={`Screenshot ${index + 1}`}
+                          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            
-          </div>
-        </div>
-      )}
+              
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <style jsx>{`
-        @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        .animate-fade-in { animation: fade-in 0.2s ease-out; }
-        .animate-scale-in { animation: scale-in 0.3s ease-out; }
+      <style>{`
         .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
         .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        .custom-scrollbar-light::-webkit-scrollbar {
+          width: 8px;
+        }
+        .custom-scrollbar-light::-webkit-scrollbar-track {
+          background: #f4f4f5;
+          border-radius: 10px;
+        }
+        .custom-scrollbar-light::-webkit-scrollbar-thumb {
+          background: #d4d4d8;
+          border-radius: 10px;
+        }
+        .custom-scrollbar-light::-webkit-scrollbar-thumb:hover {
+          background: #10b981;
+        }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
